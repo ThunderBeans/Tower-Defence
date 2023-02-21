@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerPlacement : MonoBehaviour
+public class TowerRemove : MonoBehaviour
 {
-    [SerializeField] GameObject towerToPlace;
+    [SerializeField] private GameObject ground;
 
     private bool isClicked = false;
     private void OnMouseDown()
@@ -12,14 +12,14 @@ public class TowerPlacement : MonoBehaviour
         print("was clicked");
         isClicked = true;
     }
-    private void Update()
+    void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.E))
         {
             if (isClicked)
             {
                 isClicked = false;
-                _ = Instantiate(towerToPlace, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
+                _ = Instantiate(ground, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
                 Destroy(gameObject);
             }
         }

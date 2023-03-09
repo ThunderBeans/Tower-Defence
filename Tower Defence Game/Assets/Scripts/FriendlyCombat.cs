@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class FriendlyCombat : MonoBehaviour
 {
-    //-- Enemy Stats
+    //-- Friendly Stats
     public float hitPoints = 20;
     public float damage = 10;
     public float attackCoolDown = 1f; // how many seconds between attacks
@@ -21,9 +21,13 @@ public class FriendlyCombat : MonoBehaviour
     public bool enemyDead;
     public List<GameObject> enemies;
     private bool criticalHit = false;
-    FriendlyCombat friendlyCombatScript;
+    private float coolDownBackup;
+    EnemyCombat EnemyCombatScript;
 
-
+    private void Awake()
+    {
+        coolDownBackup = attackCoolDown;
+    }
     private void Start()
     {
         enemyDead = false;
@@ -31,7 +35,7 @@ public class FriendlyCombat : MonoBehaviour
     }
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Friendly"))
+        if (collider.gameObject.CompareTag("Enemy"))
         {
 
             enemySeen = true;
@@ -41,16 +45,22 @@ public class FriendlyCombat : MonoBehaviour
     }
     void OnTriggerExit(Collider collider)
     {
-        if (collider.CompareTag("Friendly"))
+        if (collider.gameObject.CompareTag("Enemy"))
         {
             enemySeen = false;
             enemies.Remove(collider.gameObject);
         }
     }
 
-
+    
     void Update()
     {
+        if (enemies.Count > 0 && enemies[0] == null)
+        {
+            enemies.RemoveAt(0);
+            enemySeen = false;
+        }
+
         if (enemyDead == true && enemies.Count >= 0)
         {
             Destroy(enemies[0]);
@@ -63,6 +73,10 @@ public class FriendlyCombat : MonoBehaviour
         {
             transform.LookAt(enemies[0].transform);
         }
+        else
+        {
+            transform.LookAt(transform);
+        }
 
 
         if (enemies.Count > 0)
@@ -70,6 +84,13 @@ public class FriendlyCombat : MonoBehaviour
             enemySeen = true;
         }
 
+        attackCoolDown -= 1 * Time.deltaTime;
+
+        if (attackCoolDown <= 0.1 && enemySeen)
+        {
+            attackCoolDown = coolDownBackup;
+            attack();
+        }
     }
 
     void attack()
@@ -79,14 +100,21 @@ public class FriendlyCombat : MonoBehaviour
             criticalHit = true;
         }
 
-        friendlyCombatScript = enemies[0].GetComponent<FriendlyCombat>();
+        EnemyCombatScript = enemies[0].GetComponent<EnemyCombat>();
 
         if(criticalHit)
         {
-            friendlyCombatScript.hitPoints -= (damage * critDmgMultiplier);
+            print("!!CRIT!!");
+            EnemyCombatScript.hitPoints -= (damage * critDmgMultiplier);
+            criticalHit = false;
         }else
         {
+            EnemyCombatScript.hitPoints -= damage;
+        }
 
+        if (EnemyCombatScript.hitPoints <= 0)
+        {
+            enemyDead = true;
         }
     }
 }

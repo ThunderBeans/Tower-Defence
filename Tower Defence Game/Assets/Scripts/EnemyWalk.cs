@@ -5,13 +5,16 @@ using UnityEngine.AI;
 
 public class EnemyWalk : MonoBehaviour
 {
-    NavMeshAgent nmAgent;
-    Vector3 navDestination = new(570, 264, -689); //change this to the vector3 of the end of the path
-
+    //-- Stats
     float distanceUntillStop = 0.5f;
     float walkSpeed = 5;
     float turnSpeed = 120;
     float accel = 8;
+
+    //-- Misc
+    NavMeshAgent nmAgent;
+    Vector3 navDestination = new(570, 264, -689); //change this to the vector3 of the end of the path
+
 
 
     private void Awake()

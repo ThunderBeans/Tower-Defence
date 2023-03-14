@@ -44,7 +44,10 @@ public class BowTowerScript : MonoBehaviour
 
     void Update()
     {
-
+        if(enemy.Count <= 0)
+        {
+            EnemySeen=false;
+        }
         if (enemy.Count > 0 && enemy[0] == null)
         {
             enemy.RemoveAt(0);

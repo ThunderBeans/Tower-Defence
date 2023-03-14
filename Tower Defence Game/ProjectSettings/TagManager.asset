@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Friendly
   - Enemy
+
+  - Bullet
+  - DeafaultTarget
+  - Tower
   layers:
   - Default
   - TransparentFX

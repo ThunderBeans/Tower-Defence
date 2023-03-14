@@ -23,10 +23,11 @@ public class EnemyCombat : MonoBehaviour
     private bool criticalHit = false;
     private float coolDownBackup;
     FriendlyCombat friendlyCombatScript;
-
+    EnemyWalk enemyWalk;
 
     private void Awake()
     {
+        enemyWalk = GetComponent<EnemyWalk>();
         coolDownBackup = attackCoolDown;
         enemyDead = false;
     }
@@ -46,6 +47,7 @@ public class EnemyCombat : MonoBehaviour
         if (collider.CompareTag("Friendly"))
         {
             enemySeen = false;
+            enemyWalk.inCombat = false;
             enemies.Remove(collider.gameObject);
         }
     }
@@ -57,23 +59,22 @@ public class EnemyCombat : MonoBehaviour
         {
             enemies.RemoveAt(0);
             enemySeen = false;
+            enemyWalk.inCombat = false;
         }
 
         if (enemyDead == true && enemies.Count >= 0)
         {
             Destroy(enemies[0]);
             enemies.RemoveAt(0);
+            enemyWalk.inCombat = false;
             enemySeen = false;
             enemyDead = false;
         }
         
         if (enemySeen == true)
         {
+            enemyWalk.inCombat = true;
             transform.LookAt(enemies[0].transform);
-        }
-        else
-        {
-            transform.LookAt(transform);
         }
 
 

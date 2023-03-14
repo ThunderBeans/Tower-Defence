@@ -12,9 +12,9 @@ public class EnemyWalk : MonoBehaviour
     float accel = 8;
 
     //-- Misc
+    public bool inCombat = false;
     NavMeshAgent nmAgent;
     Vector3 navDestination = new(570, 264, -689); //change this to the vector3 of the end of the path
-
 
 
     private void Awake()
@@ -29,5 +29,16 @@ public class EnemyWalk : MonoBehaviour
     void Start()
     {
         nmAgent.destination = navDestination;
+    }
+    private void Update()
+    {
+        if (inCombat)
+        {
+            nmAgent.destination = gameObject.transform.position;
+        }
+        else if (!inCombat)
+        {
+            nmAgent.destination = navDestination;
+        }
     }
 }

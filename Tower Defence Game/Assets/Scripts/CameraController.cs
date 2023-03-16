@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
-    float speedV = 70000.0f;
-    float speedH = 70000.0f;
+    float speedV = 1500.0f;
+    float speedH = 1500.0f;
     public GameObject Camera;
     Rigidbody rb;
     bool inputDetector = true;
@@ -35,10 +33,6 @@ public class CameraController : MonoBehaviour
                 esc = false;
                 Ob.SetActive(false);
                 Op.SetActive(false);
-                GameObject.Find("Terug").SetActive(false);
-                GameObject.Find("Smoothness").SetActive(false);
-                GameObject.Find("Options").SetActive(false);
-                GameObject.Find("Canvas").SetActive(false);
         }
     }
 
@@ -58,8 +52,6 @@ public class CameraController : MonoBehaviour
         }
         else { Op.SetActive(false); Time.timeScale = 1.0f; }
 
-        // zet een object aan zodat de value aangepast kan worden
-
 
         // speedH is horizontal en speedV is vertical
         float horizon = Input.GetAxisRaw("Horizontal");
@@ -69,19 +61,19 @@ public class CameraController : MonoBehaviour
         switch (horizon)
         {
             case 1:
-                rb.AddForce(Vector3.right * speedH * Time.deltaTime);
+                rb.AddForce(Vector3.right * speedH * Time.deltaTime, ForceMode.Impulse);
                 break;
             case -1:
-                rb.AddForce(Vector3.left * speedH * Time.deltaTime);
+                rb.AddForce(Vector3.left * speedH * Time.deltaTime, ForceMode.Impulse);
                 break;
         }
         switch (vertica)
         {
             case -1:
-                rb.AddForce(Vector3.back * speedV * Time.deltaTime);
+                rb.AddForce(Vector3.back * speedV * Time.deltaTime, ForceMode.Impulse);
                 break;
             case 1:
-                rb.AddForce(Vector3.forward * speedV * Time.deltaTime);
+                rb.AddForce(Vector3.forward * speedV * Time.deltaTime, ForceMode.Impulse);
                 break;
         }
         // als je een kant op gaat en dan van directie verandert wordt je momentum stil gezet 
@@ -121,7 +113,7 @@ public class CameraController : MonoBehaviour
     {
         SceneManager.LoadScene("MaxScene");
         Debug.Log(" " + Instellingen.cameraSmoothness);
-        Instellingen.slider.value = Instellingen.cameraSmoothness;
+        // Instellingen.slider.value = Instellingen.cameraSmoothness;
         Instellingen.LoadSettings();
 
         

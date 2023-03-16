@@ -1,34 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.UIElements;
+using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Instellingen : MonoBehaviour
 {
-    public static float cameraSmoothness = 1.005f;
-    GameObject slider;
-    Slider sl;
+    public static Slider slider;
 
+    public static float cameraSmoothness = 1;
+    public void Update()
+    {
+        PlayerPrefs.SetFloat("cameraSmoothness", cameraSmoothness);
+        PlayerPrefs.Save();
+        CameraSlide();
+        slider.value = cameraSmoothness;
+        Debug.Log("Load " + slider.value);
+    }
 
     private void Awake()
-    {   //Pakt de slider van het main menu
-
-    }
-    void Update()
     {
-        
+        slider = GameObject.Find("Smoothness").GetComponent<Slider>();
+        slider.value = cameraSmoothness;
     }
+    public static void LoadSettings()
+    {
+        cameraSmoothness = PlayerPrefs.GetFloat("cameraSmoothness");
+    }
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat("cameraSmoothness", cameraSmoothness);
+        PlayerPrefs.Save();
+        slider.value = cameraSmoothness;
+        Debug.Log("Saved");
+    }
+
     //pakt de value van de slider
     public void CameraSlide()
     {
-        GameObject slider = GameObject.Find("Smoothness");
-        
-        Slider sl = slider.GetObjectVariable<Slider>();
+        slider = GameObject.Find("Smoothness").GetComponent<Slider>();
         cameraSmoothness = slider.value;
-        Debug.Log("Functie " + cameraSmoothness);
-
-        
     }
+
 }

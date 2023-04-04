@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -19,6 +20,7 @@ public class EnemyCombat : MonoBehaviour
     public Transform DeafaultTargetPosition;
     public bool enemySeen;
     public bool enemyDead;
+    public bool Dead;
     public List<GameObject> enemies;
     private bool criticalHit = false;
     private float coolDownBackup;
@@ -26,7 +28,8 @@ public class EnemyCombat : MonoBehaviour
     EnemyWalk enemyWalk;
 
     private void Awake()
-    {
+    { 
+        
         enemyWalk = GetComponent<EnemyWalk>();
         coolDownBackup = attackCoolDown;
         enemyDead = false;
@@ -34,61 +37,78 @@ public class EnemyCombat : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Friendly"))
+        if (Dead == false)
         {
 
-            enemySeen = true;
-            target = collider.gameObject.transform;
-            enemies.Add(collider.gameObject);
+            if (collider.CompareTag("Friendly"))
+            {
+
+                enemySeen = true;
+                target = collider.gameObject.transform;
+                enemies.Add(collider.gameObject);
+            }
         }
     }
     void OnTriggerExit(Collider collider)
     {
-        if (collider.CompareTag("Friendly"))
+        if (Dead == false)
         {
-            enemySeen = false;
-            enemyWalk.inCombat = false;
-            enemies.Remove(collider.gameObject);
+
+            if (collider.CompareTag("Friendly"))
+            {
+                enemySeen = false;
+                enemyWalk.inCombat = false;
+                enemies.Remove(collider.gameObject);
+            }
         }
     }
 
 
     void Update()
     {
-        if (enemies.Count > 0 && enemies[0] == null)
-        {
-            enemies.RemoveAt(0);
-            enemySeen = false;
-            enemyWalk.inCombat = false;
-        }
-
-        if (enemyDead == true && enemies.Count >= 0)
-        {
-            Destroy(enemies[0]);
-            enemies.RemoveAt(0);
-            enemyWalk.inCombat = false;
-            enemySeen = false;
-            enemyDead = false;
-        }
         
-        if (enemySeen == true)
+        if (hitPoints <= 0)
         {
-            enemyWalk.inCombat = true;
-            transform.LookAt(enemies[0].transform);
+            Dead=true;
+            Destroy(gameObject);
         }
-
-
-        if (enemies.Count > 0)
+        if (Dead == false)
         {
-            enemySeen = true;
-        }
+            if (enemies.Count > 0 && enemies[0] == null)
+            {
+                enemies.RemoveAt(0);
+                enemySeen = false;
+                enemyWalk.inCombat = false;
+            }
 
-        attackCoolDown -= 1 * Time.deltaTime;
+            if (enemyDead == true && enemies.Count >= 0)
+            {
+                Destroy(enemies[0]);
+                enemies.RemoveAt(0);
+                enemyWalk.inCombat = false;
+                enemySeen = false;
+                enemyDead = false;
+            }
 
-        if (attackCoolDown <= 0.1 && enemySeen)
-        {
-            attackCoolDown = coolDownBackup;
-            attack();
+            if (enemySeen == true)
+            {
+                enemyWalk.inCombat = true;
+                transform.LookAt(enemies[0].transform);
+            }
+
+
+            if (enemies.Count > 0)
+            {
+                enemySeen = true;
+            }
+
+            attackCoolDown -= 1 * Time.deltaTime;
+
+            if (attackCoolDown <= 0.1 && enemySeen)
+            {
+                attackCoolDown = coolDownBackup;
+                attack();
+            }
         }
     }
 

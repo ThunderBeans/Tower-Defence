@@ -410,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &370783032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -776,7 +776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4418487345912747245, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418487345920831444, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4418487345920831450, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_Value
@@ -805,6 +809,10 @@ PrefabInstance:
     - target: {fileID: 4418487345920831450, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418487345920831451, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 4418487345920831451, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -836,7 +844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4418487346466590606, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4418487346466590606, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_AnchorMin.x
@@ -921,6 +929,10 @@ PrefabInstance:
     - target: {fileID: 4418487346930863205, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_Name
       value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418487346930863205, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4418487346930863210, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_Colors.m_ColorMultiplier
@@ -1076,7 +1088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4418487347052820623, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4881808125365319900, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_IsActive

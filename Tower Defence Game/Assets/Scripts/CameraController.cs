@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     bool esc = true;
     GameObject Op;
     public static GameObject Ob;
+    public static GameObject Zoom;
+    Vector3 victor;
 
 
     private void Awake()
@@ -19,6 +21,7 @@ public class CameraController : MonoBehaviour
         Op = GameObject.Find("Main");
         rb = GetComponent<Rigidbody>();
         Ob = GameObject.Find("Options");
+        Zoom = GameObject.Find("CameraController");
     }
 
     private void Start()
@@ -28,7 +31,7 @@ public class CameraController : MonoBehaviour
         // Retrieve the name of scene.
         string sceneName = currentScene.name;
 
-        if (sceneName == "MaxScene")
+        if (sceneName == "MaxScene" || sceneName == "Marinus" || sceneName == "Scene2")
         {
                 esc = false;
                 Ob.SetActive(false);
@@ -56,8 +59,20 @@ public class CameraController : MonoBehaviour
         // speedH is horizontal en speedV is vertical
         float horizon = Input.GetAxisRaw("Horizontal");
         float vertica = Input.GetAxisRaw("Vertical");
+        float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+
 
         // horizon is de horizontale input en vertica de verticale
+
+        switch (scroll)
+        {
+            case -0.1f:
+                Zoom.transform.position += victor = new Vector3(0, 1 * 2 ,0);
+                break;
+            case 0.1f:
+                Zoom.transform.position += victor = new Vector3(0, 1 * -2 ,0);
+                break;
+        }
         switch (horizon)
         {
             case 1:
@@ -76,6 +91,7 @@ public class CameraController : MonoBehaviour
                 rb.AddForce(Vector3.forward * speedV * Time.deltaTime, ForceMode.Impulse);
                 break;
         }
+        
         // als je een kant op gaat en dan van directie verandert wordt je momentum stil gezet 
         // voordat je wisselt van kant
         if (horizon <= vertica && inputDetector == true)

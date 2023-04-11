@@ -4,48 +4,21 @@ using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
-    [SerializeField] GameObject towerToPlace;
-    [SerializeField] GameObject PlacerToPlace;
-    Camera cam;
-    public LayerMask mask;
-    public LayerMask mask2;
-    void Start()
-    {
-        cam = Camera.main;
-    }
+    public GameObject prefab;
+    public LayerMask groundLayer; 
 
-    void Update()
+    public void Update()
     {
-        // Draw Ray
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 100f;
-        mousePos = cam.ScreenToWorldPoint(mousePos);
-        Debug.DrawRay(transform.position, mousePos - transform.position,
-        Color.blue);
-
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 100, mask, QueryTriggerInteraction.Ignore))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer))
             {
-                Debug.Log(hit.transform.name);
-                _ = Instantiate(towerToPlace, hit.transform.gameObject.GetComponent<Transform>().position, hit.transform.gameObject.GetComponent<Transform>().rotation);
-                Destroy(hit.transform.gameObject);
+                Instantiate(prefab, hit.point, Quaternion.identity);
             }
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 100, mask2, QueryTriggerInteraction.Ignore))
+            else
             {
-                Debug.Log(hit.transform.name);
-                _ = Instantiate(PlacerToPlace, hit.transform.gameObject.GetComponent<Transform>().position, PlacerToPlace.transform.rotation);
-                Destroy(hit.transform.gameObject);
+                Debug.Log("No");
             }
         }
     }

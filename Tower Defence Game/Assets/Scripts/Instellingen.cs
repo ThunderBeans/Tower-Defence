@@ -6,7 +6,7 @@ public class Instellingen : MonoBehaviour
 {
     public static Slider slider;
 
-    public static float cameraSmoothness = 1;
+    public static float cameraSmoothness = 5;
     public void Update()
     {
         PlayerPrefs.SetFloat("cameraSmoothness", cameraSmoothness);

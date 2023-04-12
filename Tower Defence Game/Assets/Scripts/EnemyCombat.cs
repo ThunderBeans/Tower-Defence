@@ -109,7 +109,7 @@ public class EnemyCombat : MonoBehaviour
                 attackCoolDown = coolDownBackup;
                 attack();
             }
-        }
+        } 
     }
 
     void attack()

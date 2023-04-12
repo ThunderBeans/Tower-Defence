@@ -1456,7 +1456,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4418487345920831450, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418487345920831450, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
+      propertyPath: m_MaxValue
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418487345920831450, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
+      propertyPath: m_MinValue
+      value: 1.001
       objectReference: {fileID: 0}
     - target: {fileID: 4418487345920831450, guid: 5aa42ddfbb1510c4f97a664ee65aae7d, type: 3}
       propertyPath: m_Colors.m_NormalColor.b

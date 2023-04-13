@@ -26,10 +26,11 @@ public class EnemyCombat : MonoBehaviour
     private float coolDownBackup;
     FriendlyCombat friendlyCombatScript;
     EnemyWalk enemyWalk;
+    public CurencyScript curencyScript;
 
     private void Awake()
     { 
-        
+        curencyScript = GameObject.Find("Gui").GetComponent<CurencyScript>();
         enemyWalk = GetComponent<EnemyWalk>();
         coolDownBackup = attackCoolDown;
         enemyDead = false;
@@ -69,8 +70,10 @@ public class EnemyCombat : MonoBehaviour
         
         if (hitPoints <= 0)
         {
+            curencyScript.addMoney();
             Dead=true;
             Destroy(gameObject);
+            
         }
         if (Dead == false)
         {

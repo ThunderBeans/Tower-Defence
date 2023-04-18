@@ -9,11 +9,12 @@ TagManager:
   - DeafaultTarget
   - Tower
   - Friendly
+  - kasteel
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Agent
+  - Ground
   - Water
   - UI
   - 

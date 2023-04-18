@@ -14,8 +14,7 @@ public class EnemyWalk : MonoBehaviour
     //-- Misc
     public bool inCombat = false;
     NavMeshAgent nmAgent;
-    Vector3 navDestination = new(570, 264, -689); //change this to the vector3 of the end of the path
-
+    GameObject kasteel; 
 
     private void Awake()
     {
@@ -25,11 +24,15 @@ public class EnemyWalk : MonoBehaviour
         nmAgent.angularSpeed = turnSpeed;
         nmAgent.acceleration = accel;
         nmAgent.stoppingDistance = distanceUntillStop;
+
+        kasteel = GameObject.FindGameObjectWithTag("kasteel");
     }
+
     void Start()
     {
-        nmAgent.destination = navDestination;
+        nmAgent.destination = kasteel.transform.position;
     }
+
     private void Update()
     {
         if (inCombat)
@@ -38,7 +41,7 @@ public class EnemyWalk : MonoBehaviour
         }
         else if (!inCombat)
         {
-            nmAgent.destination = navDestination;
+            nmAgent.destination = kasteel.transform.position;
         }
     }
 }

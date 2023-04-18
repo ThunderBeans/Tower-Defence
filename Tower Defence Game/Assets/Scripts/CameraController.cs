@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
         // Retrieve the name of scene.
         string sceneName = currentScene.name;
 
-        if (sceneName == "MaxScene" || sceneName == "Marinus" || sceneName == "Scene2")
+        if (sceneName != "Menu")
         {
                 esc = false;
                 Ob.SetActive(false);

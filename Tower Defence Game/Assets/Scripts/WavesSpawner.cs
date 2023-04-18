@@ -1,20 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WavesSpawner : MonoBehaviour
 {
     public GameObject prefab; 
     public float spawnTime = 2f; 
-    private float timer = 0f; 
-
+    private float timer = 0f;
+    public float waveTimer;
+    public float wave;
+    public TextMeshProUGUI waveText;
 
     void Update()
     {
        
         timer += Time.deltaTime;
+        waveTimer += Time.deltaTime;
+        if (waveTimer >= 20f)
+        {
+            waveTimer = 0f;
+            wave++;
+            spawnTime *= 0.9f;
+            waveText.text = "Wave: " + wave.ToString();
+        }
 
-       
         if (timer >= spawnTime)
         {
             

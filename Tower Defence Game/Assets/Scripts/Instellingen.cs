@@ -6,14 +6,13 @@ public class Instellingen : MonoBehaviour
 {
     public static Slider slider;
 
-    public static float cameraSmoothness = 5;
+    public static float cameraSmoothness = 1.001f;
     public void Update()
     {
         PlayerPrefs.SetFloat("cameraSmoothness", cameraSmoothness);
         PlayerPrefs.Save();
         CameraSlide();
         slider.value = cameraSmoothness;
-        Debug.Log("Load " + slider.value);
     }
 
     private void Awake()
@@ -30,7 +29,6 @@ public class Instellingen : MonoBehaviour
         PlayerPrefs.SetFloat("cameraSmoothness", cameraSmoothness);
         PlayerPrefs.Save();
         slider.value = cameraSmoothness;
-        Debug.Log("Saved");
     }
 
     //pakt de value van de slider

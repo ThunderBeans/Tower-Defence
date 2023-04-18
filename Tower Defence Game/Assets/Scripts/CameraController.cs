@@ -31,6 +31,7 @@ public class CameraController : MonoBehaviour
         // Retrieve the name of scene.
         string sceneName = currentScene.name;
 
+        // de menu objecten staan standaar aan en worden hier uitgezet zodat de de player prefs geladen worden
         if (sceneName != "Menu")
         {
                 esc = false;
@@ -41,7 +42,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        // toggle voor de esc bool voor het pause menu
+        // toggle voor de esc bool, voor het pause menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Toggler();
@@ -62,8 +63,7 @@ public class CameraController : MonoBehaviour
         float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
 
 
-        // horizon is de horizontale input en vertica de verticale
-
+        // horizon is de horizontale input en vertica de verticale. Scroll is om uit te zoomen
         switch (scroll)
         {
             case -0.1f:
@@ -96,7 +96,7 @@ public class CameraController : MonoBehaviour
         // voordat je wisselt van kant
         if (horizon <= vertica && inputDetector == true)
         {
-            rb.velocity = Vector3.zero;
+           rb.velocity = Vector3.zero;
         }
         if (horizon >= vertica && inputDetector == true)
         {
@@ -106,14 +106,14 @@ public class CameraController : MonoBehaviour
 
         // als de er geen input is wordt de camera langzaam stil gezet
 
-        //checkt voor input en geeft een bool
+        //checkt voor input
         if (vertica != 0 || horizon != 0)
         {
             inputDetector = true;
         }
         else { inputDetector = false; }
 
-
+        // laat de camera langzaam doorglijden als je de knoppen los laat
         if (inputDetector == false)
         {
             rb.velocity = rb.velocity / Instellingen.cameraSmoothness;
@@ -125,15 +125,17 @@ public class CameraController : MonoBehaviour
         esc = !esc;
     }
 
+    //laad MaxScene
+    // wordt later verandert naar een levelselector
     public void Play()
     {
         SceneManager.LoadScene("MaxScene");
-        Debug.Log(" " + Instellingen.cameraSmoothness);
         // Instellingen.slider.value = Instellingen.cameraSmoothness;
         Instellingen.LoadSettings();
 
         
     }
+    // gaat van de scene van nu naar het main menu
     public void yalP()
     {
         SceneManager.LoadScene("Menu");

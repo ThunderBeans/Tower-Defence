@@ -9,7 +9,7 @@ public class WavesSpawner : MonoBehaviour
     public float spawnTime = 2f; 
     private float timer = 0f;
     public float waveTimer;
-    public float wave;
+    public float wave = 1;
     public TextMeshProUGUI waveText;
 
     void Update()

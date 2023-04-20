@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8044348544530172425
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 0
+  quality:
+    m_OverrideState: 1
+    m_Value: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.205
+  clamp:
+    m_OverrideState: 1
+    m_Value: 0.05
 --- !u!114 &-3951003874876477378
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -21,13 +46,47 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.423
+    m_Value: 0.374
   smoothness:
     m_OverrideState: 1
     m_Value: 0.2
   rounded:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &-3406844294037739042
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 0.7984944, y: 1, z: 0.7460683, w: 0}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 0.97570574, y: 1, z: 0.97423005, w: 0}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 0.8058806, y: 1, z: 0.78844273, w: 0}
+  shadowsStart:
+    m_OverrideState: 1
+    m_Value: 0
+  shadowsEnd:
+    m_OverrideState: 1
+    m_Value: 0.3
+  highlightsStart:
+    m_OverrideState: 1
+    m_Value: 0.55
+  highlightsEnd:
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +103,8 @@ MonoBehaviour:
   - {fileID: 8143430901028447529}
   - {fileID: 2159588694346480742}
   - {fileID: -3951003874876477378}
+  - {fileID: -8044348544530172425}
+  - {fileID: -3406844294037739042}
 --- !u!114 &2159588694346480742
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -74,7 +135,7 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 2.09
+    m_Value: 2.2
   aperture:
     m_OverrideState: 1
     m_Value: 5.6
@@ -108,7 +169,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 1.26
   scatter:
     m_OverrideState: 1
     m_Value: 0.7

@@ -330,7 +330,7 @@ MonoBehaviour:
   damage: 3
   targetTag: Enemy
   gun: {fileID: 496301831746938901}
-  fireRate: 10
+  fireRate: 8
 --- !u!65 &6647628433078760989
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -45,12 +45,10 @@ public class Tower : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(gun.position, gun.forward, out hit, range))
             {
-                Debug.Log("2");
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {
                     emc = nearestEnemy.GetComponent<EnemyCombat>();
                     emc.hitPoints -= damage;
-                    Debug.Log("Blalal");
                 }
             }
         }

@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     public GameObject Camera;
     Rigidbody rb;
     bool inputDetector = true;
-    bool esc = true;
+    public bool esc = true;
     GameObject Op;
     public static GameObject Ob;
     public static GameObject Zoom;

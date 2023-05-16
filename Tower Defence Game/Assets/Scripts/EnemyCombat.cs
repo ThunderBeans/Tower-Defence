@@ -69,6 +69,7 @@ public class EnemyCombat : MonoBehaviour
             targets.Clear();
             enemyWalk.inCombat = true;
             enemyWalk.enabled = false;
+            Destroy(gameObject);
         }
 
         attackCoolDown -= 1 * Time.deltaTime;

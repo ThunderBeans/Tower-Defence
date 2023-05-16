@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,6 +44,17 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speedV = 3000f;
+            speedH = 3000f;
+        }
+        else
+        {
+            speedV = 1500f;
+            speedH = 1500f;
+        }
+
         // toggle voor de esc bool, voor het pause menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -63,7 +75,6 @@ public class CameraController : MonoBehaviour
         }
        
 
-
         // speedH is horizontal en speedV is vertical
         float horizon = Input.GetAxisRaw("Horizontal");
         float vertica = Input.GetAxisRaw("Vertical");
@@ -75,8 +86,10 @@ public class CameraController : MonoBehaviour
         {
             case -0.1f:
                 Zoom.transform.position += victor = new Vector3(0, 1 * 2, 0);
+                // rb.AddForce(Vector3.up * 1000);
                 break;
             case 0.1f:
+                // rb.AddForce(Vector3.down * 1000);
                 Zoom.transform.position += victor = new Vector3(0, 1 * -2, 0);
                 break;
         }
@@ -153,5 +166,6 @@ public class CameraController : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-   
+
+
 }

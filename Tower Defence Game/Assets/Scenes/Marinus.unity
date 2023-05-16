@@ -285,6 +285,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6802921766414551290, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802921766414551290, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802921766423557069, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
+      propertyPath: m_Value
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802921766423557069, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
+      propertyPath: m_MaxValue
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802921766423557069, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
+      propertyPath: m_MinValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802921768042009497, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802921768042009497, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802921768042009497, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7149829005008560886, guid: d4525fbf7b30f0b43a367ad44900a2b7, type: 3}
       propertyPath: m_Name
       value: Menu+Camera

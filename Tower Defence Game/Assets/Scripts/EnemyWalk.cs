@@ -14,12 +14,13 @@ public class EnemyWalk : MonoBehaviour
     //-- Misc
     public bool inCombat = false;
     NavMeshAgent nmAgent;
-    GameObject kasteel; 
+    GameObject kasteel;
+    Kasteel kasteelcode;
 
     private void Awake()
     {
         nmAgent = GetComponent<NavMeshAgent>();
-
+        kasteelcode = GameObject.FindGameObjectWithTag("kasteel").GetComponent<Kasteel>();
         nmAgent.speed = walkSpeed;
         nmAgent.angularSpeed = turnSpeed;
         nmAgent.acceleration = accel;
@@ -42,6 +43,18 @@ public class EnemyWalk : MonoBehaviour
         else if (!inCombat)
         {
             nmAgent.destination = kasteel.transform.position;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("kasteel"))
+        {
+            if(kasteelcode.attacked == false)
+            { 
+                kasteelcode.attacked = true;
+                kasteelcode.Invoke("Damage",2);
+                Destroy(gameObject);
+            }  
         }
     }
 }

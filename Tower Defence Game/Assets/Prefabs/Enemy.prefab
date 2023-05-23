@@ -127,17 +127,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994418a03b938a64eac46fdff297640d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 50
+  hitPoints: 60
   damage: 10
   attackCoolDown: 1
   critChance: 10
   critDmgMultiplier: 1.5
-  target: {fileID: 0}
-  DeafaultTargetPosition: {fileID: 0}
+  targetTransform: {fileID: 0}
   enemySeen: 0
-  enemyDead: 0
-  Dead: 0
-  enemies: []
+  castleSeen: 0
+  isDead: 0
+  targets: []
 --- !u!114 &8284456815781688097
 MonoBehaviour:
   m_ObjectHideFlags: 0

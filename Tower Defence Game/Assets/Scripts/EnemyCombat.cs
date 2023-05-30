@@ -127,4 +127,31 @@ public class EnemyCombat : MonoBehaviour
             otherCombattant.hitPoints -= damage;
         }
     }
+
+    void easy()
+    {
+        hitPoints = 50f;
+        damage = 7.5f;
+        attackCoolDown = 2f; // how many seconds between attacks
+        critChance = 10f; // 1 in ...
+        critDmgMultiplier = 1.25f;
+    }
+
+    void medium()
+    {
+        hitPoints = 75f;
+        damage = 10f;
+        attackCoolDown = 1f; // how many seconds between attacks
+        critChance = 10f; // 1 in ...
+        critDmgMultiplier = 1.5f;
+    }
+
+    void hard()
+    {
+        hitPoints = 100f;
+        damage = 12.5f;
+        attackCoolDown = 1f; // how many seconds between attacks
+        critChance = 5f; // 1 in ...
+        critDmgMultiplier = 2f;
+    }
 }

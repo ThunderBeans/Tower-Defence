@@ -1317,6 +1317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 891426033957817358}
+  esc: 1
 --- !u!54 &8587218714641465985
 Rigidbody:
   m_ObjectHideFlags: 0

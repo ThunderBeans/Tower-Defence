@@ -13,7 +13,7 @@ public class CurencyScript : MonoBehaviour
 
     void Update()
     {
-        MoneyText.text = Money.ToString();
+        MoneyText.text = "Money:" +Money.ToString();
     }
 
     public void addMoney()

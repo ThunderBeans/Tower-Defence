@@ -27,9 +27,11 @@ public class EnemyCombat : MonoBehaviour
     FriendlyCombat otherCombattant;
     private string enemyTag = "Friendly";
     EnemyWalk enemyWalk;
+    CurencyScript currency;
 
     private void Awake()
     {
+        currency = GameObject.FindGameObjectWithTag("Mony").GetComponent<CurencyScript>();
         enemyWalk = GetComponent<EnemyWalk>();
         coolDownBackup = attackCoolDown;
         isDead = false;
@@ -69,6 +71,7 @@ public class EnemyCombat : MonoBehaviour
             targets.Clear();
             enemyWalk.inCombat = true;
             enemyWalk.enabled = false;
+            currency.Money += currency.MoneyGain;
             Destroy(gameObject);
         }
 

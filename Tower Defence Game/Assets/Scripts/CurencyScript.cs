@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CurencyScript : MonoBehaviour
 {
-    public int Money;
+    public int Money = 1000;
     public int MoneyGain = 10;
     public TextMeshProUGUI MoneyText;
     

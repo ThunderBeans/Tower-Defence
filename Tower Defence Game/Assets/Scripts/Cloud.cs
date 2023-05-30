@@ -10,6 +10,8 @@ public class Cloud : MonoBehaviour
 
     private Rigidbody rb;
 
+    private float timeToLive = 120f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,6 +22,14 @@ public class Cloud : MonoBehaviour
 
         float yRotation = Random.Range(0f, 360f);
         transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
+    }
+    private void Update()
+    {
+        if (timeToLive < 0)
+        {
+            Destroy(gameObject);
+        }
+        timeToLive -= 1 * Time.deltaTime;
     }
 }
 

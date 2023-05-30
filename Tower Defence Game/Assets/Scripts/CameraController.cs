@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // toggle voor de esc bool, voor het pause menu
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -28,6 +28,9 @@ public class EnemyCombat : MonoBehaviour
     private string enemyTag = "Friendly";
     EnemyWalk enemyWalk;
 
+    public GameObject Man;
+    public GameObject Poef;
+
     private void Awake()
     {
         enemyWalk = GetComponent<EnemyWalk>();
@@ -60,7 +63,10 @@ public class EnemyCombat : MonoBehaviour
             }
         }
     }
-
+    void Dead()
+    {
+        Destroy(gameObject);
+    }
     private void Update()
     {
         if (hitPoints <= 0)
@@ -69,7 +75,9 @@ public class EnemyCombat : MonoBehaviour
             targets.Clear();
             enemyWalk.inCombat = true;
             enemyWalk.enabled = false;
-            Destroy(gameObject);
+            Man.SetActive(false);
+            Poef.SetActive(true);
+            Invoke("Dead", 1);
         }
 
         attackCoolDown -= 1 * Time.deltaTime;

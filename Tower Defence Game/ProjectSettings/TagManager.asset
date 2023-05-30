@@ -11,6 +11,7 @@ TagManager:
   - Friendly
   - kasteel
   - ground
+  - Mony
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class CameraController : MonoBehaviour
     public static GameObject Ob;
     public static GameObject Zoom;
     Vector3 victor;
+    
 
 
     private void Awake()
@@ -34,14 +36,25 @@ public class CameraController : MonoBehaviour
         // de menu objecten staan standaar aan en worden hier uitgezet zodat de de player prefs geladen worden
         if (sceneName != "Menu")
         {
-                esc = false;
-                Ob.SetActive(false);
-                Op.SetActive(false);
+            esc = false;
+            Ob.SetActive(false);
+            Op.SetActive(false);
         }
     }
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speedV = 3000f;
+            speedH = 3000f;
+        }
+        else
+        {
+            speedV = 1500f;
+            speedH = 1500f;
+        }
+
         // toggle voor de esc bool, voor het pause menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -54,8 +67,13 @@ public class CameraController : MonoBehaviour
             Op.SetActive(true);
             Time.timeScale = 0.0f;
         }
-        else { Op.SetActive(false); Time.timeScale = 1.0f; }
+        else if (esc == false) { Op.SetActive(false); Time.timeScale = 1.0f; }
 
+        if (Ob.activeSelf == true && esc == true)
+        { 
+          Op.SetActive(false);
+        }
+       
 
         // speedH is horizontal en speedV is vertical
         float horizon = Input.GetAxisRaw("Horizontal");
@@ -67,10 +85,12 @@ public class CameraController : MonoBehaviour
         switch (scroll)
         {
             case -0.1f:
-                Zoom.transform.position += victor = new Vector3(0, 1 * 2 ,0);
+                Zoom.transform.position += victor = new Vector3(0, 1 * 2, 0);
+                // rb.AddForce(Vector3.up * 1000);
                 break;
             case 0.1f:
-                Zoom.transform.position += victor = new Vector3(0, 1 * -2 ,0);
+                // rb.AddForce(Vector3.down * 1000);
+                Zoom.transform.position += victor = new Vector3(0, 1 * -2, 0);
                 break;
         }
         switch (horizon)
@@ -91,12 +111,12 @@ public class CameraController : MonoBehaviour
                 rb.AddForce(Vector3.forward * speedV * Time.deltaTime, ForceMode.Impulse);
                 break;
         }
-        
+
         // als je een kant op gaat en dan van directie verandert wordt je momentum stil gezet 
         // voordat je wisselt van kant
         if (horizon <= vertica && inputDetector == true)
         {
-           rb.velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
         }
         if (horizon >= vertica && inputDetector == true)
         {
@@ -118,6 +138,7 @@ public class CameraController : MonoBehaviour
         {
             rb.velocity = rb.velocity / Instellingen.cameraSmoothness;
         }
+
     }
 
     public void Toggler()
@@ -130,7 +151,6 @@ public class CameraController : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("MaxScene");
-        // Instellingen.slider.value = Instellingen.cameraSmoothness;
         Instellingen.LoadSettings();
 
         
@@ -146,5 +166,6 @@ public class CameraController : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-   
+
+
 }

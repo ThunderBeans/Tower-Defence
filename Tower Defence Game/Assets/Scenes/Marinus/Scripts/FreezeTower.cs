@@ -7,7 +7,7 @@ public class FreezeTower : MonoBehaviour
 {
     EnemyCombat emc;
 
-    // Towet variables
+    // Tower variables
     int damage = 2;
     int cooldownReduction = 0;
 

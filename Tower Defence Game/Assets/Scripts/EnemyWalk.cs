@@ -7,7 +7,7 @@ public class EnemyWalk : MonoBehaviour
 {
     //-- Stats
     float distanceUntillStop = 0.5f;
-    float walkSpeed = 5;
+    public float walkSpeed = 5;
     float turnSpeed = 120;
     float accel = 8;
 

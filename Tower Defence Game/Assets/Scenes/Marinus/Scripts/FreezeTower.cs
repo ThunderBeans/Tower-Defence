@@ -23,10 +23,6 @@ public class FreezeTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Upgrade.PlayerUpgrade == true)
-        //{ 
-           
-        //}
 
     }
 

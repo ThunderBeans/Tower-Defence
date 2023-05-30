@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
@@ -6,6 +6,8 @@ public class TowerPlacement : MonoBehaviour
     public string groundTag;
     public CameraController controller;
     public int number;
+    public CurencyScript currency;
+
 
     public void Update()
     {
@@ -14,18 +16,22 @@ public class TowerPlacement : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Default"), QueryTriggerInteraction.Ignore))
             {
-                if (hit.collider.gameObject.CompareTag(groundTag) && number == 1)
+                if (hit.collider.gameObject.CompareTag(groundTag) && number == 1 && currency.Money >= 400)
                 {
+                     currency.Money -= 400;
                     Instantiate(prefab[1], hit.point, Quaternion.identity);
                 }
-                if (hit.collider.gameObject.CompareTag(groundTag) && number == 2)
+                if (hit.collider.gameObject.CompareTag(groundTag) && number == 2 && currency.Money >= 700)
                 {
+                     currency.Money -= 700;
                     Instantiate(prefab[2], hit.point, Quaternion.identity);
                 }
-                if (hit.collider.gameObject.CompareTag(groundTag) && number == 3)
+                if (hit.collider.gameObject.CompareTag(groundTag) && number == 3 && currency.Money >= 1000)
                 {
+                    currency.Money -= 1000;
                     Instantiate(prefab[3], hit.point, Quaternion.identity);
                 }
+
                 else
                 {
                     Debug.Log("No");

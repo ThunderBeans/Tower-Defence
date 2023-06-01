@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Kasteel : MonoBehaviour
 {
     public int health= 500;
+    public bool attacked;
 
-    private void Update()
+ 
+    public void Damage()
     {
-        if(health <= 0)
+        Debug.Log("ow");
+        attacked = false;
+        health -= 10;
+        if (health <= 0)
         {
-            Debug.Log("Dead");
-            Destroy(gameObject);
+            Debug.Log("dood");
         }
     }
 }

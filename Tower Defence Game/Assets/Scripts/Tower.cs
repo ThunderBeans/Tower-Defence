@@ -7,7 +7,7 @@ public class Tower : MonoBehaviour
     public float range = 5f;
     public float damage = 10f;
     public string targetTag = "Enemy";
-    public Transform gun;
+    public Transform[] gun;
     public float fireRate = 1f;
     EnemyCombat emc;
     private float fireCountdown = 0f;
@@ -40,10 +40,21 @@ public class Tower : MonoBehaviour
 
         if (nearestEnemy != null && shortestDistance <= range)
         {
-            gun.LookAt(nearestEnemy.transform);
+            gun[0].LookAt(nearestEnemy.transform);
             
             RaycastHit hit;
-            if (Physics.Raycast(gun.position, gun.forward, out hit, range))
+            if (Physics.Raycast(gun[0].position, gun[0].forward, out hit, range))
+            {
+                if (hit.collider.gameObject.CompareTag(targetTag))
+                {
+                    emc = nearestEnemy.GetComponent<EnemyCombat>();
+                    emc.hitPoints -= damage;
+                }
+            }
+            gun[1].LookAt(nearestEnemy.transform);
+
+            
+            if (Physics.Raycast(gun[1].position, gun[1].forward, out hit, range))
             {
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {

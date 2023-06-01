@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -27,9 +26,14 @@ public class EnemyCombat : MonoBehaviour
     FriendlyCombat otherCombattant;
     private string enemyTag = "Friendly";
     EnemyWalk enemyWalk;
+    CurencyScript currency;
+
+    public GameObject Man;
+    public GameObject Poef;
 
     private void Awake()
     {
+        currency = GameObject.FindGameObjectWithTag("Mony").GetComponent<CurencyScript>();
         enemyWalk = GetComponent<EnemyWalk>();
         coolDownBackup = attackCoolDown;
         isDead = false;
@@ -60,7 +64,11 @@ public class EnemyCombat : MonoBehaviour
             }
         }
     }
-
+    void Dead()
+    {
+        Destroy(gameObject);
+        currency.Money += currency.MoneyGain;
+    }
     private void Update()
     {
         if (hitPoints <= 0)
@@ -69,6 +77,13 @@ public class EnemyCombat : MonoBehaviour
             targets.Clear();
             enemyWalk.inCombat = true;
             enemyWalk.enabled = false;
+
+            Man.SetActive(false);
+            Poef.SetActive(true);
+            Invoke("Dead", 1);
+
+            
+            
         }
 
         attackCoolDown -= 1 * Time.deltaTime;

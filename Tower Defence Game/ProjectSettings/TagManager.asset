@@ -10,6 +10,8 @@ TagManager:
   - Tower
   - Friendly
   - kasteel
+  - ground
+  - Mony
   layers:
   - Default
   - TransparentFX

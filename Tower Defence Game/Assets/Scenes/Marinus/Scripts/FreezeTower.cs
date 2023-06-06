@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class FreezeTower : MonoBehaviour
 {
@@ -13,11 +15,14 @@ public class FreezeTower : MonoBehaviour
 
     // Kogel
     public GameObject freezeBlast;
+    ParticleSystem Particle;
+    Transform position;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Particle = GameObject.Find("FreezeBlast 1").GetComponent<ParticleSystem>();
+        position = transform.position.ConvertTo());
     }
 
     // Update is called once per frame
@@ -26,18 +31,33 @@ public class FreezeTower : MonoBehaviour
 
     }
 
-
-    private void OnTriggerEnter(Collider Trigger)
+    private void OnTriggerEnter(Collider Other)
     {
-        if (Trigger.gameObject.CompareTag("Enemy"))
+        if (Other.gameObject.CompareTag("Enemy"))
         {
            Shoot();
         }
     }
+
+    private void OnTriggerExit(Collider Other)
+    {
+        if (Other.gameObject.CompareTag("Enemy"))
+        {
+         CancelInvoke("Shoot");
+        }
+    }
+
+    void DestroyDamage()
+    {
+        Destroy(freezeBlast);
+    }
     void Shoot()
     {
-     Instantiate(freezeBlast);
-     InvokeRepeating("Shoot", 0.3f, 3f - cooldownReduction);
+        Particle.Play();
+        Instantiate(freezeBlast, position);
+        Invoke("Shoot", 0.1f);
+        Invoke("DestroyDamage", 1f);
+        print("Shooting");
     }
     // maak een ander script om de kogel prefab aan te roepen
     // emc.hitPoints -= damage;

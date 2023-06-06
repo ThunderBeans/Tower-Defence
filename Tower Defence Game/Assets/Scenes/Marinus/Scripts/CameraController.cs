@@ -15,7 +15,11 @@ public class CameraController : MonoBehaviour
     public static GameObject Ob;
     public static GameObject Zoom;
     Vector3 victor;
-    
+    bool spedUp = false;
+    Image speedControlButton;
+    Sprite Speed1;
+    public Sprite Speed2;
+
 
 
     private void Awake()
@@ -24,6 +28,8 @@ public class CameraController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Ob = GameObject.Find("Options");
         Zoom = GameObject.Find("CameraController");
+        speedControlButton = GameObject.Find("Speed").GetComponent<Image>();
+        Speed1 = speedControlButton.sprite;
     }
 
     private void Start()
@@ -67,7 +73,21 @@ public class CameraController : MonoBehaviour
             Op.SetActive(true);
             Time.timeScale = 0.0f;
         }
-        else if (esc == false) { Op.SetActive(false); Time.timeScale = 1.0f; }
+        else if (esc == false) 
+        { 
+            Op.SetActive(false); 
+            Time.timeScale = 1.0f;
+            if (spedUp)
+            {
+                Time.timeScale = 2.0f;
+                speedControlButton.sprite = Speed2;
+            }
+            else if (spedUp == false)
+            {
+                Time.timeScale = 1.0f;
+                speedControlButton.sprite = Speed1;
+            }
+        }
 
         if (Ob.activeSelf == true && esc == true)
         { 
@@ -165,6 +185,10 @@ public class CameraController : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+    public void ToggleTime()
+    {
+        spedUp = !spedUp;
     }
 
 

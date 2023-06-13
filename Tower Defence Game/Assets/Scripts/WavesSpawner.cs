@@ -44,7 +44,7 @@ public class WavesSpawner : MonoBehaviour
         }
     }
 
-         //Enemy Picked pakt een index en EnemySpawned geeft het nummer terug op deze index
+         //EnemyPicked pakt een index en EnemySpawned geeft het nummer terug op deze index
          private void PickEnemy(Vector3 _spawnPos)
            {
              List<int> EnemyOdds = new List<int>() {0,0,0,0,0,0,0,1,1,2};

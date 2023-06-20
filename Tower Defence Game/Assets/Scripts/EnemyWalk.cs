@@ -38,7 +38,7 @@ public class EnemyWalk : MonoBehaviour
 
     void Start()
     {
-        Invoke("Journy", 0.5f);
+        Invoke("Journey", 0.6f);
     }
 
     private void Update()
@@ -59,10 +59,10 @@ public class EnemyWalk : MonoBehaviour
         {
             nmAgent.destination = gameObject.transform.position;
         }
-        //else if (!inCombat)
-        //{
-        //    nmAgent.destination = kasteel.transform.position;
-        //}
+        else if (!inCombat && nmAgent.isOnNavMesh)
+        {
+            nmAgent.destination = kasteel.transform.position;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -91,8 +91,11 @@ public class EnemyWalk : MonoBehaviour
         walkSpeed = doel;
     }
 
-    private void Journy()
+    private void Journey()
     {
+        if (nmAgent.isOnNavMesh)
+        { 
         nmAgent.SetDestination(kasteel.transform.position);
+        }
     }
 }

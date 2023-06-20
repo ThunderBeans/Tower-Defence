@@ -22,7 +22,7 @@ public class FreezeTower : MonoBehaviour
     void Start()
     {
         Particle = GameObject.Find("FreezeBlast 1").GetComponent<ParticleSystem>();
-        position = transform.position.ConvertTo());
+       // position = transform.position.ConvertTo();
     }
 
     // Update is called once per frame

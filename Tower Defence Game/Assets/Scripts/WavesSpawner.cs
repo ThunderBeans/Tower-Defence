@@ -12,7 +12,6 @@ public class WavesSpawner : MonoBehaviour
     private float timer = 0f;
     public float waveTimer;
     public float wave = 1;
-    public float multiplier = 0.5f;
     public TextMeshProUGUI waveText;
 
     void Update()
@@ -24,7 +23,7 @@ public class WavesSpawner : MonoBehaviour
         {
             waveTimer = 0f;
             wave++;
-            spawnTime *= multiplier;
+            spawnTime *= 0.9f;
             waveText.text = "Wave: " + wave.ToString();
         }
 

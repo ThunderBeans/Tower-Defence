@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,16 +9,15 @@ public class FreezeTower : MonoBehaviour
     public float damage = 1f;
     public string targetTag = "Enemy";
     public Transform[] gun;
-    public float fireRate = 20f;
+    public float fireRate = 8f;
     public float freezePower = 0.3f; // lager is sterker
     public GameObject freezeRay;
 
 
     EnemyCombat emc;
     EnemyWalk emw;
-    // public Transform freezer;
 
-    private float fireCountdown = 0f;
+    private float fireCountdown = 1f / 8f;
 
     void Update()
     {
@@ -31,7 +31,7 @@ public class FreezeTower : MonoBehaviour
 
     void FindTargetAndShoot()
     {
-        //int ignore = 0; ignore = Random.Range(0, 2);
+        // int ignore = 0; ignore = Random.Range(0, 2);
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
         GameObject nearestEnemy = null;
@@ -57,9 +57,8 @@ public class FreezeTower : MonoBehaviour
 
         if (nearestEnemy != null && shortestDistance <= range)
         {
-            RaycastHit hit;
             gun[0].LookAt(nearestEnemy.transform);
-
+            RaycastHit hit;
 
             if (Physics.Raycast(gun[0].position, gun[0].forward, out hit, range))
             {
@@ -68,6 +67,7 @@ public class FreezeTower : MonoBehaviour
                     emc = nearestEnemy.GetComponent<EnemyCombat>();
                     emw = nearestEnemy.GetComponent<EnemyWalk>();
 
+                    Debug.DrawLine(gun[0].position, nearestEnemy.transform.position, Color.red);
                     freezeRay.GetComponent<ParticleSystem>().Play();
 
                     emc.hitPoints -= damage;

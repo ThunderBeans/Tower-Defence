@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
     Vector3 victor;
     bool spedUp = false;
     Image speedControlButton;
-    Sprite Speed1;
+    public Sprite Speed1;
     public Sprite Speed2;
 
 
@@ -29,7 +29,6 @@ public class CameraController : MonoBehaviour
         Ob = GameObject.Find("Options");
         Zoom = GameObject.Find("CameraController");
         speedControlButton = GameObject.Find("Speed").GetComponent<Image>();
-        Speed1 = speedControlButton.sprite;
     }
 
     private void Start()
@@ -48,7 +47,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {

@@ -19,7 +19,7 @@
 
 //    public void ToggleTime()
 //    {
-//           spedUp = !spedUp;
+//        spedUp = !spedUp;
 //    }
 
 //    private void Update()
@@ -31,11 +31,11 @@
 //            print(Time.timeScale);
 //        }
 //        else if (!spedUp)
-//        { 
+//        {
 //            Time.timeScale = 1.0f;
 //            speedControlButton.sprite = Speed1;
 //            print(Time.timeScale);
-//        } 
-        
+//        }
+
 //    }
 //}

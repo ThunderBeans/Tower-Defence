@@ -31,7 +31,7 @@ public class FreezeTower : MonoBehaviour
 
     void FindTargetAndShoot()
     {
-        int ignore = 0; ignore = Random.Range(0, 2);
+        //int ignore = 0; ignore = Random.Range(0, 2);
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
         GameObject nearestEnemy = null;
@@ -41,7 +41,7 @@ public class FreezeTower : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance && ignore == 1)
+            if (distanceToEnemy < shortestDistance) // && ignore == 1)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;

@@ -89,7 +89,7 @@ MonoBehaviour:
   arcHeight: 2
   moveSpeed: 5
   strenght: 0.1
-  delayBeforeTracking: 2
+  delayBeforeTracking: 0.3
   Explosion: {fileID: 3074975941836020596, guid: 0c767fdac915a0d498f859f5229f8063, type: 3}
 --- !u!1001 &8101366549260899223
 PrefabInstance:

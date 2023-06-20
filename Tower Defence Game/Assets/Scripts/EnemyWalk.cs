@@ -59,10 +59,10 @@ public class EnemyWalk : MonoBehaviour
         {
             nmAgent.destination = gameObject.transform.position;
         }
-        else if (!inCombat)
-        {
-            nmAgent.destination = kasteel.transform.position;
-        }
+        //else if (!inCombat)
+        //{
+        //    nmAgent.destination = kasteel.transform.position;
+        //}
     }
     private void OnTriggerEnter(Collider other)
     {

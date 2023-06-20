@@ -88,9 +88,8 @@ public class EnemyCombat : MonoBehaviour
             enemyWalk.enabled = false;
 
             Man.SetActive(false);
+            Poef.SetActive(true);
             Invoke("Dead", .0f);
-
-
 
         }
 

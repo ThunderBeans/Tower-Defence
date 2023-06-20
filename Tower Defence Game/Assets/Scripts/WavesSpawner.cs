@@ -33,7 +33,7 @@ public class WavesSpawner : MonoBehaviour
 
 
             Vector3 spawnPos = transform.position;
-            Vector3 hitboxSize = GetComponent<Collider>().bounds.size;
+            Vector3 hitboxSize = GetComponent<Collider>().bounds.size;  
             spawnPos.x += Random.Range(-hitboxSize.x / 2f, hitboxSize.x / 2f);
             spawnPos.y += Random.Range(-hitboxSize.y / 2f, hitboxSize.y / 2f);
             spawnPos.z += Random.Range(-hitboxSize.z / 2f, hitboxSize.z / 2f);

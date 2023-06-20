@@ -5,56 +5,51 @@ using UnityEngine.AI;
 
 public class EnemyWalk : MonoBehaviour
 {
-    //-- Stats
-    float distanceUntillStop = 0.5f;
-    public float walkSpeed = 5;
+    // Stats
+    float distanceUntilStop = 0.5f;
+    float walkSpeed = 5;
     float turnSpeed = 120;
     float accel = 8;
 
-    //-- Misc
+    // Misc
     public bool inCombat = false;
     NavMeshAgent nmAgent;
     GameObject kasteel;
-    Kasteel kasteelcode;
+    Kasteel kasteelCode;
+    EnemyCombat ec;
 
     private void Awake()
     {
+        ec= GetComponent<EnemyCombat>();
         nmAgent = GetComponent<NavMeshAgent>();
-        kasteelcode = GameObject.FindGameObjectWithTag("kasteel").GetComponent<Kasteel>();
+        kasteelCode = GameObject.FindGameObjectWithTag("kasteel").GetComponent<Kasteel>();
         nmAgent.speed = walkSpeed;
         nmAgent.angularSpeed = turnSpeed;
         nmAgent.acceleration = accel;
-        nmAgent.stoppingDistance = distanceUntillStop;
+        nmAgent.stoppingDistance = distanceUntilStop;
 
         kasteel = GameObject.FindGameObjectWithTag("kasteel");
     }
 
     void Start()
     {
-        nmAgent.destination = kasteel.transform.position;
+        nmAgent.SetDestination(kasteel.transform.position);
     }
 
-    private void Update()
-    {
-        if (inCombat)
-        {
-            nmAgent.destination = gameObject.transform.position;
-        }
-        else if (!inCombat)
-        {
-            nmAgent.destination = kasteel.transform.position;
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("kasteel"))
         {
-            if(kasteelcode.attacked == false)
-            { 
-                kasteelcode.attacked = true;
-                kasteelcode.Invoke("Damage",2);
+            if (kasteelCode.attacked == false)
+            {
+                kasteelCode.attacked = true;
+                kasteelCode.Invoke("Damage", 2);
                 Destroy(gameObject);
-            }  
+            }
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            ec.Hit();
         }
     }
 }

@@ -63,9 +63,15 @@ public class EnemyCombat : MonoBehaviour
                 enemySeen = false;
             }
         }
+
     }
-    void Dead()
+    public void Hit()
     {
+        hitPoints -= 30;
+    }
+    public void Dead()
+    {
+        Instantiate(Poef, transform.position, transform.rotation);
         Destroy(gameObject);
         currency.Money += currency.MoneyGain;
     }
@@ -79,8 +85,7 @@ public class EnemyCombat : MonoBehaviour
             enemyWalk.enabled = false;
 
             Man.SetActive(false);
-            Poef.SetActive(true);
-            Invoke("Dead", 1);
+            Invoke("Dead", .0f);
 
             
             

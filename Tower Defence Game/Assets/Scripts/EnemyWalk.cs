@@ -33,7 +33,7 @@ public class EnemyWalk : MonoBehaviour
 
     void Start()
     {
-        nmAgent.SetDestination(kasteel.transform.position);
+        Invoke("Journy", 0.5f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,5 +51,9 @@ public class EnemyWalk : MonoBehaviour
         {
             ec.Hit();
         }
+    }
+    private void Journy()
+    {
+        nmAgent.SetDestination(kasteel.transform.position);
     }
 }

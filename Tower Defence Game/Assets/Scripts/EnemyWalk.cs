@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 public class EnemyWalk : MonoBehaviour
 {
@@ -12,8 +10,6 @@ public class EnemyWalk : MonoBehaviour
     public float walkSpeed = 5;
     float turnSpeed = 120;
     float accel = 8;
-    public float baseSpeed;
-    public float unFreezeSpeed = 1;
 
     //-- Misc
     public bool inCombat = false;
@@ -23,7 +19,6 @@ public class EnemyWalk : MonoBehaviour
 
     private void Awake()
     {
-        baseSpeed = walkSpeed;
         nmAgent = GetComponent<NavMeshAgent>();
         kasteelcode = GameObject.FindGameObjectWithTag("kasteel").GetComponent<Kasteel>();
         nmAgent.speed = walkSpeed;
@@ -41,18 +36,6 @@ public class EnemyWalk : MonoBehaviour
 
     private void Update()
     {
-
-       nmAgent.speed = walkSpeed;
-        if (walkSpeed <= baseSpeed)
-        {
-            walkSpeed = Mathf.MoveTowards(walkSpeed, baseSpeed, (1 / unFreezeSpeed) * Time.deltaTime);
-        }
-
-        if (walkSpeed <= 0)
-        {
-            walkSpeed = 0;
-        }
-
         if (inCombat)
         {
             nmAgent.destination = gameObject.transform.position;
@@ -73,14 +56,5 @@ public class EnemyWalk : MonoBehaviour
                 Destroy(gameObject);
             }  
         }
-    }
-    IEnumerator walkSpeedUp(float start, float doel, float lengte)
-    {
-        for (float t = 0f; t < lengte; t += Time.deltaTime)
-        {
-            walkSpeed = Mathf.Lerp(start, doel, t /lengte);
-            yield return null;
-        }
-        walkSpeed = doel;
     }
 }

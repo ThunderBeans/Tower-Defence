@@ -50,6 +50,17 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speedV = 3000f;
+            speedH = 3000f;
+        }
+        else
+        {
+            speedV = 1500f;
+            speedH = 1500f;
+        }
+
         // toggle voor de esc bool, voor het pause menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -69,15 +80,11 @@ public class CameraController : MonoBehaviour
             if (spedUp)
             {
                 Time.timeScale = 2.0f;
-                speedH = 750f;
-                speedV= 750f;
                 speedControlButton.sprite = Speed2;
             }
             else if (spedUp == false)
             {
                 Time.timeScale = 1.0f;
-                speedH = 1500f;
-                speedV = 1500f;
                 speedControlButton.sprite = Speed1;
             }
         }

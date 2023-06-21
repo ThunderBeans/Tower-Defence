@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
         if (fireCountdown <= 0f)
         {
             FindTargetAndShoot();
-            fireCountdown = 1f;
+            fireCountdown = 1f / fireRate;
         }
     }
 

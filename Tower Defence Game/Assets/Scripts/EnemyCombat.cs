@@ -16,7 +16,7 @@ public class EnemyCombat : MonoBehaviour
     public float critDmgMultiplier = 1.5f;
 
     //-- Misc 
-    public Transform targetTransform;
+    public static Transform targetTransform;
     public bool enemySeen;
     public bool castleSeen;
     public bool isDead;
@@ -141,7 +141,8 @@ public class EnemyCombat : MonoBehaviour
             otherCombattant.hitPoints -= (damage * critDmgMultiplier);
             criticalHit = false;
             print("!!CRIT!!");
-        }else
+        }
+        else
         {
             otherCombattant.hitPoints -= damage;
         }

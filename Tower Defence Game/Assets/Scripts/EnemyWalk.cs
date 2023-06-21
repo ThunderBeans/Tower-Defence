@@ -45,12 +45,12 @@ public class EnemyWalk : MonoBehaviour
     {
 
        nmAgent.speed = walkSpeed;
-        if (walkSpeed <= baseSpeed)
+        if (walkSpeed != baseSpeed)
         {
             walkSpeed = Mathf.MoveTowards(walkSpeed, baseSpeed, (1 / unFreezeSpeed) * Time.deltaTime);
         }
 
-        if (walkSpeed <= 0)
+        if (walkSpeed < 0)
         {
             walkSpeed = 0;
         }
@@ -85,7 +85,7 @@ public class EnemyWalk : MonoBehaviour
     {
         for (float t = 0f; t < lengte; t += Time.deltaTime)
         {
-            walkSpeed = Mathf.Lerp(start, doel, t /lengte);
+            walkSpeed = Mathf.Lerp(start, doel, t / lengte);
             yield return null;
         }
         walkSpeed = doel;

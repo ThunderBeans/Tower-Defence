@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 20
   damage: 3
-  targetTag: Enemy
   gun:
+  - {fileID: 4688081273261252895}
   - {fileID: 4688081273261252895}
   fireRate: 8
   freezePower: 0.02
@@ -307,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7433903518769153183, guid: 735d53cb441eead458943c7c77c584b1, type: 3}
       propertyPath: looping
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7433903518769153183, guid: 735d53cb441eead458943c7c77c584b1, type: 3}
       propertyPath: lengthInSec

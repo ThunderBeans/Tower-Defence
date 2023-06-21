@@ -134,13 +134,14 @@ MonoBehaviour:
   attackCoolDown: 1
   critChance: 10
   critDmgMultiplier: 1.5
-  targetTransform: {fileID: 0}
   enemySeen: 0
   castleSeen: 0
   isDead: 0
   targets: []
   Man: {fileID: 3810513262067934452}
   Poef: {fileID: 7926803308531354490}
+  FrozenMat: {fileID: 2100000, guid: 2ab50617bbb7ccb4aacc5b66feef7c08, type: 2}
+  NormalMat: {fileID: 2100000, guid: 498711e8e9039c049b9ac68f992ae0a8, type: 2}
 --- !u!114 &3045556809632976128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
+  baseSpeed: 5
+  unFreezeSpeed: 1
   inCombat: 0
 --- !u!54 &3045556809632976131
 Rigidbody:

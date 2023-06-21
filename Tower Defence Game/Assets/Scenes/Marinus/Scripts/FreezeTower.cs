@@ -17,7 +17,7 @@ public class FreezeTower : MonoBehaviour
     EnemyCombat emc;
     EnemyWalk emw;
 
-    private float fireCountdown = 1f / 8f;
+    private float fireCountdown = 0f;
 
     void Update()
     {
@@ -34,9 +34,10 @@ public class FreezeTower : MonoBehaviour
         // int ignore = 0; ignore = Random.Range(0, 2);
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
+        
+        float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
-        float shortestDistance = Mathf.Infinity;
 
         foreach (GameObject enemy in enemies)
         {
@@ -67,7 +68,7 @@ public class FreezeTower : MonoBehaviour
                     emc = nearestEnemy.GetComponent<EnemyCombat>();
                     emw = nearestEnemy.GetComponent<EnemyWalk>();
 
-                    Debug.DrawLine(gun[0].position, nearestEnemy.transform.position, Color.red);
+                    print("Shooting");
                     freezeRay.GetComponent<ParticleSystem>().Play();
 
                     emc.hitPoints -= damage;

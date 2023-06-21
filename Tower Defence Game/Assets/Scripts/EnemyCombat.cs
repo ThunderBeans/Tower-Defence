@@ -117,7 +117,8 @@ public class EnemyCombat : MonoBehaviour
         {
             enemyWalk.inCombat = true;
             transform.LookAt(targetTransform);
-        }else
+        }
+        else
         {
             enemyWalk.inCombat = false;
             transform.LookAt(transform);

@@ -38,19 +38,19 @@ public class EnemyWalk : MonoBehaviour
 
     void Start()
     {
-        Invoke("Journy", 0.5f);
+        Invoke("Journey", 0.6f);
     }
 
     private void Update()
     {
 
        nmAgent.speed = walkSpeed;
-        if (walkSpeed <= baseSpeed)
+        if (walkSpeed != baseSpeed)
         {
             walkSpeed = Mathf.MoveTowards(walkSpeed, baseSpeed, (1 / unFreezeSpeed) * Time.deltaTime);
         }
 
-        if (walkSpeed <= 0)
+        if (walkSpeed < 0)
         {
             walkSpeed = 0;
         }
@@ -59,10 +59,10 @@ public class EnemyWalk : MonoBehaviour
         {
             nmAgent.destination = gameObject.transform.position;
         }
-        //else if (!inCombat)
-        //{
-        //    nmAgent.destination = kasteel.transform.position;
-        //}
+        else if (!inCombat && nmAgent.isOnNavMesh)
+        {
+            nmAgent.destination = kasteel.transform.position;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -85,14 +85,17 @@ public class EnemyWalk : MonoBehaviour
     {
         for (float t = 0f; t < lengte; t += Time.deltaTime)
         {
-            walkSpeed = Mathf.Lerp(start, doel, t /lengte);
+            walkSpeed = Mathf.Lerp(start, doel, t / lengte);
             yield return null;
         }
         walkSpeed = doel;
     }
 
-    private void Journy()
+    private void Journey()
     {
+        if (nmAgent.isOnNavMesh)
+        { 
         nmAgent.SetDestination(kasteel.transform.position);
+        }
     }
 }

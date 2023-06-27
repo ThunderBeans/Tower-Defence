@@ -35,6 +35,7 @@ public class Tower : MonoBehaviour
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
+                print("HIT");
 
             }
             if (distanceToEnemy > shortestDistance)
@@ -49,7 +50,6 @@ public class Tower : MonoBehaviour
 
             gun[0].LookAt(nearestEnemy.transform);
 
-            print("HIT");
             RaycastHit hit;
             if (Physics.Raycast(gun[0].position, gun[0].forward, out hit, range))
             {

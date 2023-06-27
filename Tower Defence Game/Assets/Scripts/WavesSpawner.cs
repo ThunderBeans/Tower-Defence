@@ -48,17 +48,17 @@ public class WavesSpawner : MonoBehaviour
          private void PickEnemy(Vector3 _spawnPos)
          {
            List<int> EnemyOdds = new List<int>() {0,0,0,0,0,0,0,0,0,1};
-           if (wave < 5) 
+           if (wave >= 5) 
            { 
             EnemyOdds = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 }; 
            }
 
-           if (wave < 10) 
+           if (wave >= 10) 
            {
             EnemyOdds = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 1, 1, 2 }; 
            }
 
-           if (wave < 20)
+           if (wave >= 20)
            {
             EnemyOdds = new List<int>() { 0, 0, 0, 0, 0, 1, 1, 1, 2, 2 };
            }   

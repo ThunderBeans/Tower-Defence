@@ -35,12 +35,15 @@ public class EnemyCombat : MonoBehaviour
 
     private void Awake()
     {
-        currency = GameObject.FindGameObjectWithTag("Mony").GetComponent<CurencyScript>();
         enemyWalk = GetComponent<EnemyWalk>();
         coolDownBackup = attackCoolDown;
         isDead = false;
         castleSeen = false;
-        
+    }
+
+    private void Start()
+    {
+        currency = GameObject.FindGameObjectWithTag("Mony").GetComponent<CurencyScript>();
     }
 
     private void OnTriggerEnter(Collider other)

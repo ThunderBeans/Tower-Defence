@@ -65,10 +65,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3074975941836020596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73fc0c5231b745408cffa0da76b01d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e447f83ded6049489a84f6e28892852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.5
+  time: 0.2
 --- !u!1 &8008725577535291173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4830,7 +4830,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e30714e9e819274ba9016c7907abbcd, type: 2}
+  - {fileID: 2100000, guid: 087533bf7127dcf41bc783605a38ae1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

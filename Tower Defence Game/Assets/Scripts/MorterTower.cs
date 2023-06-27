@@ -24,6 +24,11 @@ public class MorterTower : MonoBehaviour
                 nearestDistance = distance;
                 nearestEnemy = enemy;
             }
+            else if (distance > nearestDistance)
+            {
+                nearestDistance = distance;
+                nearestEnemy = enemy;
+            }
         }
 
         if (nearestEnemy != null)

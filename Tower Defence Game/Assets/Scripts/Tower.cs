@@ -35,6 +35,12 @@ public class Tower : MonoBehaviour
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
+
+            }
+            else if (distanceToEnemy > shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
             }
         }
 
@@ -44,6 +50,17 @@ public class Tower : MonoBehaviour
             
             RaycastHit hit;
             if (Physics.Raycast(gun[0].position, gun[0].forward, out hit, range))
+            {
+                if (hit.collider.gameObject.CompareTag(targetTag))
+                {
+                    emc = nearestEnemy.GetComponent<EnemyCombat>();
+                    emc.hitPoints -= damage;
+                }
+            }
+            gun[1].LookAt(nearestEnemy.transform);
+
+            
+            if (Physics.Raycast(gun[1].position, gun[1].forward, out hit, range))
             {
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {

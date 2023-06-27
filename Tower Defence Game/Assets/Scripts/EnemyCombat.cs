@@ -30,6 +30,8 @@ public class EnemyCombat : MonoBehaviour
 
     public GameObject Man;
     public GameObject Poef;
+    public Material FrozenMat;
+    public Material NormalMat;
 
     private void Awake()
     {
@@ -38,6 +40,7 @@ public class EnemyCombat : MonoBehaviour
         coolDownBackup = attackCoolDown;
         isDead = false;
         castleSeen = false;
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,10 +88,9 @@ public class EnemyCombat : MonoBehaviour
             enemyWalk.enabled = false;
 
             Man.SetActive(false);
+            Poef.SetActive(true);
             Invoke("Dead", .0f);
 
-            
-            
         }
 
         attackCoolDown -= 1 * Time.deltaTime;

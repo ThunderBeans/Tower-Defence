@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class WavesSpawner : MonoBehaviour
 {
-    public GameObject prefab; 
+    public GameObject Man;
+    public GameObject Slime;
+    public GameObject Paddenstoel;
     public float spawnTime = 2f; 
     private float timer = 0f;
     public float waveTimer;
@@ -36,7 +38,36 @@ public class WavesSpawner : MonoBehaviour
             spawnPos.x += Random.Range(-hitboxSize.x / 2f, hitboxSize.x / 2f);
             spawnPos.y += Random.Range(-hitboxSize.y / 2f, hitboxSize.y / 2f);
             spawnPos.z += Random.Range(-hitboxSize.z / 2f, hitboxSize.z / 2f);
-            Instantiate(prefab, spawnPos, Quaternion.identity);
+            PickEnemy(spawnPos);
+            
+          
         }
     }
+
+         //EnemyPicked pakt een index en EnemySpawned geeft het nummer terug op deze index
+         private void PickEnemy(Vector3 _spawnPos)
+           {
+             List<int> EnemyOdds = new List<int>() {0,0,0,0,0,0,0,1,1,2};
+
+            int EnemyPicked = Random.Range(0, EnemyOdds.Count);
+            int EnemySpawned = EnemyOdds[EnemyPicked];
+            switch (EnemySpawned) 
+             { 
+                    case 0:
+                Instantiate(Man, _spawnPos, Quaternion.identity);
+                print(EnemySpawned);
+                break;
+
+                    case 1:
+                Instantiate(Slime, _spawnPos, Quaternion.identity);
+                print(EnemySpawned);
+                break;
+
+                    case 2:
+                Instantiate(Paddenstoel, _spawnPos, Quaternion.identity);
+                print(EnemySpawned);
+                break;
+             }
+             
+           }
 }

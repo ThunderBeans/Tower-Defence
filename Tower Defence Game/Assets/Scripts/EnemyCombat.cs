@@ -30,6 +30,8 @@ public class EnemyCombat : MonoBehaviour
 
     public GameObject Man;
     public GameObject Poef;
+    public Material FrozenMat;
+    public Material NormalMat;
 
     private void Awake()
     {
@@ -38,6 +40,7 @@ public class EnemyCombat : MonoBehaviour
         coolDownBackup = attackCoolDown;
         isDead = false;
         castleSeen = false;
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,9 +66,15 @@ public class EnemyCombat : MonoBehaviour
                 enemySeen = false;
             }
         }
+
     }
-    void Dead()
+    public void Hit()
     {
+        hitPoints -= 30;
+    }
+    public void Dead()
+    {
+        Instantiate(Poef, transform.position, transform.rotation);
         Destroy(gameObject);
         currency.Money += currency.MoneyGain;
     }
@@ -80,10 +89,8 @@ public class EnemyCombat : MonoBehaviour
 
             Man.SetActive(false);
             Poef.SetActive(true);
-            Invoke("Dead", 1);
+            Invoke("Dead", .0f);
 
-            
-            
         }
 
         attackCoolDown -= 1 * Time.deltaTime;

@@ -35,6 +35,12 @@ public class Tower : MonoBehaviour
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
+
+            }
+            else if (distanceToEnemy > shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
             }
         }
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2485344050223835628}
   - component: {fileID: 2485344050223835629}
   - component: {fileID: 2485344050223835630}
+  - component: {fileID: 2066758250594259922}
   m_Layer: 0
   m_Name: Paddenstoel Enemy 2
   m_TagString: Enemy
@@ -51,6 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 8
+  baseSpeed: 8
+  unFreezeSpeed: 1
   inCombat: 0
 --- !u!114 &2485344050223835618
 MonoBehaviour:
@@ -69,13 +72,14 @@ MonoBehaviour:
   attackCoolDown: 1
   critChance: 10
   critDmgMultiplier: 1.5
-  targetTransform: {fileID: 0}
   enemySeen: 0
   castleSeen: 0
   isDead: 0
   targets: []
   Man: {fileID: 2485344050223835631}
   Poef: {fileID: 6246484810425136257}
+  FrozenMat: {fileID: 2100000, guid: 7fea71a94e7b5ac43a10064e98c7be29, type: 2}
+  NormalMat: {fileID: -876546973899608171, guid: a039799ba946a4e4bb494f562d813d86, type: 3}
 --- !u!195 &2485344050223835619
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -95,7 +99,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -3.39
+  m_BaseOffset: -6.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &2485344050223835628
@@ -140,6 +144,65 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4.7624464, z: 1}
   m_Center: {x: 0, y: 5.698049, z: 0}
+--- !u!137 &2066758250594259922
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485344050223835631}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -876546973899608171, guid: a039799ba946a4e4bb494f562d813d86, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -5495902117074765545, guid: a039799ba946a4e4bb494f562d813d86, type: 3}
+  m_Bones:
+  - {fileID: 7316986786143720009}
+  - {fileID: 1821781733399592642}
+  - {fileID: 4373228255210259878}
+  - {fileID: 389062290305387766}
+  - {fileID: 2576745611366069156}
+  - {fileID: 1783489413555294811}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 2576745611366069156}
+  m_AABB:
+    m_Center: {x: -0.00014262274, y: -0.0045591304, z: -0.0027732654}
+    m_Extent: {x: 0.00556914, y: 0.011954823, z: 0.008832403}
+  m_DirtyAABB: 0
 --- !u!1 &6246484810425136257
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6246484810425136257}
   m_LocalRotation: {x: -0, y: 0.7333936, z: -0, w: 0.67980427}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.08, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5015,6 +5078,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9030404392175906451, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1525181060494523598, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
     - {fileID: 1525181060494523585, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
@@ -5022,9 +5089,40 @@ PrefabInstance:
     - {fileID: 9167034674726069946, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
     - {fileID: 8024186332094381889, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
     - {fileID: 5134792215089941866, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+    - {fileID: 9030404392175906451, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+--- !u!4 &389062290305387766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3616677686496190891, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+  m_PrefabInstance: {fileID: 3987725431184354653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1783489413555294811 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3429215184997777158, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+  m_PrefabInstance: {fileID: 3987725431184354653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1821781733399592642 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3323511334940382111, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+  m_PrefabInstance: {fileID: 3987725431184354653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2576745611366069156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1483178916923154169, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+  m_PrefabInstance: {fileID: 3987725431184354653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4134180382991720891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1011251636130335974, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+  m_PrefabInstance: {fileID: 3987725431184354653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4373228255210259878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 857914612170533115, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+  m_PrefabInstance: {fileID: 3987725431184354653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7316986786143720009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5970673121246199572, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
   m_PrefabInstance: {fileID: 3987725431184354653}
   m_PrefabAsset: {fileID: 0}

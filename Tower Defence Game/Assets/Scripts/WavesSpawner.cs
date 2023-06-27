@@ -55,17 +55,17 @@ public class WavesSpawner : MonoBehaviour
              { 
                     case 0:
                 Instantiate(Man, _spawnPos, Quaternion.identity);
-                print(EnemySpawned);
+                //print(EnemySpawned);
                 break;
 
                     case 1:
                 Instantiate(Slime, _spawnPos, Quaternion.identity);
-                print(EnemySpawned);
+                //print(EnemySpawned);
                 break;
 
                     case 2:
                 Instantiate(Paddenstoel, _spawnPos, Quaternion.identity);
-                print(EnemySpawned);
+                //print(EnemySpawned);
                 break;
              }
              

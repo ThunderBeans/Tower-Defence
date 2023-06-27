@@ -47,7 +47,7 @@ public class EnemyWalk : MonoBehaviour
        nmAgent.speed = walkSpeed;
         if (walkSpeed != baseSpeed)
         {
-            walkSpeed = Mathf.MoveTowards(walkSpeed, baseSpeed, (1 / unFreezeSpeed) * Time.deltaTime);
+            walkSpeed = Mathf.MoveTowards(walkSpeed, baseSpeed, unFreezeSpeed * Time.deltaTime);
         }
 
         if (walkSpeed < 0)

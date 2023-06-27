@@ -53,7 +53,7 @@ MonoBehaviour:
   gun:
   - {fileID: 4688081273261252895}
   fireRate: 16
-  freezePower: 0.02
+  freezePower: 0.1
   freezeRay: {fileID: 4688081273261252870}
 --- !u!136 &5606419436477042051
 CapsuleCollider:

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3073310567365703402}
   - component: {fileID: 3073310567365703403}
   - component: {fileID: 3073310567365703317}
+  - component: {fileID: 8300952506729702256}
   m_Layer: 0
   m_Name: Slime 1
   m_TagString: Enemy
@@ -78,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 2.5
   baseSpeed: 2.5
-  unFreezeSpeed: 1
+  unFreezeSpeed: 0.5
   inCombat: 0
 --- !u!135 &3073310567365703402
 SphereCollider:
@@ -128,6 +129,61 @@ NavMeshAgent:
   m_BaseOffset: 1.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!137 &8300952506729702256
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3831239794954746998}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d4b5fbcd8cec0a24ca8f3ebbec8c7cd6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4711208715938537054, guid: 8dc61903ef797514da64bd62fd1a6cf0, type: 3}
+  m_Bones:
+  - {fileID: 7959358792945371589}
+  - {fileID: 5237360679172568427}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 5237360679172568427}
+  m_AABB:
+    m_Center: {x: 0.001843873, y: -0.0015708711, z: -0.00041204272}
+    m_Extent: {x: 0.016931474, y: 0.0145930275, z: 0.015458716}
+  m_DirtyAABB: 0
 --- !u!1 &7204459097249909876
 GameObject:
   m_ObjectHideFlags: 0
@@ -5099,10 +5155,15 @@ PrefabInstance:
       value: slime
       objectReference: {fileID: 0}
     - target: {fileID: 8743813690021804245, guid: 8dc61903ef797514da64bd62fd1a6cf0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8743813690021804245, guid: 8dc61903ef797514da64bd62fd1a6cf0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d4b5fbcd8cec0a24ca8f3ebbec8c7cd6, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8743813690021804245, guid: 8dc61903ef797514da64bd62fd1a6cf0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8dc61903ef797514da64bd62fd1a6cf0, type: 3}
 --- !u!4 &3648466787012114999 stripped
 Transform:
@@ -5134,3 +5195,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &5237360679172568427 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9044806412961212599, guid: 8dc61903ef797514da64bd62fd1a6cf0, type: 3}
+  m_PrefabInstance: {fileID: 3831239793553415644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7959358792945371589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2639638324218457063, guid: 8dc61903ef797514da64bd62fd1a6cf0, type: 3}
+  m_PrefabInstance: {fileID: 3831239793553415644}
+  m_PrefabAsset: {fileID: 0}

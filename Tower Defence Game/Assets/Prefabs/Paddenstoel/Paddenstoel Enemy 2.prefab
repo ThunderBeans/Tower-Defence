@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 8
   baseSpeed: 8
-  unFreezeSpeed: 1
+  unFreezeSpeed: 0.5
   inCombat: 0
 --- !u!114 &2485344050223835618
 MonoBehaviour:

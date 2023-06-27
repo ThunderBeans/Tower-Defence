@@ -47,9 +47,23 @@ public class WavesSpawner : MonoBehaviour
          //EnemyPicked pakt een index en EnemySpawned geeft het nummer terug op deze index
          private void PickEnemy(Vector3 _spawnPos)
          {
-            List<int> EnemyOdds = new List<int>() {0,0,0,0,0,0,0,1,1,2};
+           List<int> EnemyOdds = new List<int>() {0,0,0,0,0,0,0,0,0,1};
+           if (wave < 5) 
+           { 
+            EnemyOdds = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 }; 
+           }
 
-            int EnemyPicked = Random.Range(0, EnemyOdds.Count);
+           if (wave < 10) 
+           {
+            EnemyOdds = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 1, 1, 2 }; 
+           }
+
+           if (wave < 20)
+           {
+            EnemyOdds = new List<int>() { 0, 0, 0, 0, 0, 1, 1, 1, 2, 2 };
+           }   
+
+        int EnemyPicked = Random.Range(0, EnemyOdds.Count);
             int EnemySpawned = EnemyOdds[EnemyPicked];
             switch (EnemySpawned) 
              { 

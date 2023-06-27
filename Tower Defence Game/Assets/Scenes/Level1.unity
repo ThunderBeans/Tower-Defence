@@ -6275,6 +6275,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5606419436477042052, guid: c8318a0c0d8fc1649b22ac2cb977547e, type: 3}
+      propertyPath: freezeRay
+      value: 
+      objectReference: {fileID: 2030103976}
     - target: {fileID: 5606419436477042053, guid: c8318a0c0d8fc1649b22ac2cb977547e, type: 3}
       propertyPath: m_Name
       value: FreezeTower 1
@@ -10427,6 +10431,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPrefab: {fileID: 702848082}
   controller: {fileID: 6047325269345165731}
+--- !u!1 &2030103976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4688081273261252870, guid: c8318a0c0d8fc1649b22ac2cb977547e, type: 3}
+  m_PrefabInstance: {fileID: 1172540167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2031944256
 PrefabInstance:
   m_ObjectHideFlags: 0

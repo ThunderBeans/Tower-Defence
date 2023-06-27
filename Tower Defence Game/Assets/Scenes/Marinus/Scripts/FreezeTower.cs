@@ -12,13 +12,17 @@ public class FreezeTower : MonoBehaviour
     public float fireRate = 8f;
     public float freezePower = 0.3f; // lager is sterker
     public GameObject freezeRay;
+    public static ParticleSystem freeze;
 
 
     EnemyCombat emc;
     EnemyWalk emw;
 
     private float fireCountdown = 0f;
-
+    private void Start()
+    {
+    freeze = freezeRay.GetComponent<ParticleSystem>();
+    }
     void LateUpdate()
     {
         fireCountdown -= Time.deltaTime;
@@ -31,24 +35,15 @@ public class FreezeTower : MonoBehaviour
 
     void FindTargetAndShoot()
     {
-        // int ignore = 0; ignore = Random.Range(0, 2);
-
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
-        
-        float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-
+        float shortestDistance = range + 1f; // Initialize with a value greater than the range
 
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance) // && ignore == 1)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
 
-            }
-            else if (distanceToEnemy > shortestDistance)
+            if (distanceToEnemy <= shortestDistance) // Check if distance is less than or equal
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
@@ -57,25 +52,31 @@ public class FreezeTower : MonoBehaviour
 
         if (nearestEnemy != null && shortestDistance <= range)
         {
+
             gun[0].LookAt(nearestEnemy.transform);
-            
+
             RaycastHit hit;
             if (Physics.Raycast(gun[0].position, gun[0].forward, out hit, range))
             {
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {
+                    print("Shoot");
                     emc = nearestEnemy.GetComponent<EnemyCombat>();
                     emw = nearestEnemy.GetComponent<EnemyWalk>();
 
-                    print("Shooting");
-                    freezeRay.GetComponent<ParticleSystem>().Play();
+                    freeze.Play();
 
                     emc.hitPoints -= damage;
+
                     FreezeEnemy(freezePower);
                 }
+                Debug.Log("Hit Object: " + hit.collider.gameObject.name);
             }
         }
     }
+
+
+
     public void FreezeEnemy(float _freezePower)
     {
         emw.walkSpeed = Mathf.MoveTowards(emw.walkSpeed, 0, (1 / _freezePower) * Time.deltaTime);
@@ -90,5 +91,3 @@ public class FreezeTower : MonoBehaviour
     }
 
 }
-
-

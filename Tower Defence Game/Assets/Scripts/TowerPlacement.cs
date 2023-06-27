@@ -31,11 +31,6 @@ public class TowerPlacement : MonoBehaviour
                     currency.Money -= 1000;
                     Instantiate(prefab[2], hit.point, Quaternion.identity);
                 }
-                if (hit.collider.gameObject.CompareTag(groundTag) && number == 4 && currency.Money >= 700)
-                {
-                    currency.Money -= 700;
-                    Instantiate(prefab[3], hit.point, Quaternion.identity);
-                }
 
 
                 else

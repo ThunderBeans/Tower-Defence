@@ -24,27 +24,22 @@ public class Tower : MonoBehaviour
 
     void FindTargetAndShoot()
     {
+        Debug.Log("AAAAAAHHHHHHHHHHH");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
         GameObject nearestEnemy = null;
-        float shortestDistance = Mathf.Infinity;
+        float shortestDistance = range + 1f; // Initialize with a value greater than the range
 
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-                print("HIT");
 
-            }
-            if (distanceToEnemy > shortestDistance)
+            if (distanceToEnemy <= shortestDistance) // Check if distance is less than or equal
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
-
+        Debug.Log(nearestEnemy);
         if (nearestEnemy != null && shortestDistance <= range)
         {
 
@@ -59,6 +54,7 @@ public class Tower : MonoBehaviour
                     emc = nearestEnemy.GetComponent<EnemyCombat>();
                     emc.hitPoints -= damage;
                 }
+                Debug.Log("Hit Object: " + hit.collider.gameObject.name);
             }
         }
     }

@@ -5618,7 +5618,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9036534185673253199}
         m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
-        m_MethodName: press1
+        m_MethodName: press4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11072,6 +11072,18 @@ PrefabInstance:
       propertyPath: currency
       value: 
       objectReference: {fileID: 126141970}
+    - target: {fileID: 942525083226481346, guid: be0fc1919eb65014b91a6714b13252c3, type: 3}
+      propertyPath: prefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 5662242879815644514, guid: 5dbd698dfb793fb4b810c02ba7af8f04, type: 3}
+    - target: {fileID: 942525083226481346, guid: be0fc1919eb65014b91a6714b13252c3, type: 3}
+      propertyPath: prefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 5662242879815644514, guid: 18e521ddc34cbf249bf9544767a173eb, type: 3}
+    - target: {fileID: 942525083226481346, guid: be0fc1919eb65014b91a6714b13252c3, type: 3}
+      propertyPath: prefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 6436537989376172735, guid: cffa6f0c523dbae46938489e5c7d1a5f, type: 3}
     - target: {fileID: 1410897882685204187, guid: be0fc1919eb65014b91a6714b13252c3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

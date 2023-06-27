@@ -46,8 +46,8 @@ public class WavesSpawner : MonoBehaviour
 
          //EnemyPicked pakt een index en EnemySpawned geeft het nummer terug op deze index
          private void PickEnemy(Vector3 _spawnPos)
-           {
-             List<int> EnemyOdds = new List<int>() {0,0,0,0,0,0,0,1,1,2};
+         {
+            List<int> EnemyOdds = new List<int>() {0,0,0,0,0,0,0,1,1,2};
 
             int EnemyPicked = Random.Range(0, EnemyOdds.Count);
             int EnemySpawned = EnemyOdds[EnemyPicked];
@@ -67,7 +67,7 @@ public class WavesSpawner : MonoBehaviour
                 Instantiate(Paddenstoel, _spawnPos, Quaternion.identity);
                 //print(EnemySpawned);
                 break;
-             }
+            }
              
-           }
+         }
 }

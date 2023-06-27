@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79922cc97c83bf4286a4c2f43994c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 10
+  launchForce: 4
   arcHeight: 2
   moveSpeed: 5
   strenght: 0.1

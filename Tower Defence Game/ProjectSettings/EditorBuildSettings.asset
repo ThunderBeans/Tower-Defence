@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MaxScene.unity
     guid: aa9cc80589b7dfb49b295d11d01c21b9
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: c8f0a247f9a59904e86ef241d58ba98c
+  - enabled: 1
+    path: Assets/Scenes/Won.unity
+    guid: 2c7fde3d40761d640bc5df2db2c2f536
   m_configObjects: {}

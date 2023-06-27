@@ -5,7 +5,7 @@ using UnityEngine;
 public class shop : MonoBehaviour
 {
     public GameObject shopPrefab;
-    private bool isActive = false;
+    public bool isActive = false;
     public CameraController controller;
 
     private void Start()

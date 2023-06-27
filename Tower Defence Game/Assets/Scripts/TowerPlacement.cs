@@ -7,11 +7,11 @@ public class TowerPlacement : MonoBehaviour
     public CameraController controller;
     public int number;
     public CurencyScript currency;
-
+    public shop s1hop;
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0) && controller.esc == false)
+        if (Input.GetMouseButtonDown(0) && controller.esc == false && !s1hop.isActive)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Default"), QueryTriggerInteraction.Ignore))

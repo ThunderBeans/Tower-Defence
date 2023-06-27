@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.63378, g: 0.66067815, b: 0.7012434, a: 1}
+  m_IndirectSpecularColor: {r: 0.6337804, g: 0.6606785, b: 0.70124334, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10176,6 +10176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPrefab: {fileID: 702848082}
+  isActive: 0
   controller: {fileID: 6047325269345165731}
 --- !u!1 &2030103976 stripped
 GameObject:
@@ -10833,6 +10834,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 942525083226481346, guid: be0fc1919eb65014b91a6714b13252c3, type: 3}
+      propertyPath: s1hop
+      value: 
+      objectReference: {fileID: 2028049449}
     - target: {fileID: 942525083226481346, guid: be0fc1919eb65014b91a6714b13252c3, type: 3}
       propertyPath: currency
       value: 

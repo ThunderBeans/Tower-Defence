@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FreezeTower : MonoBehaviour
@@ -70,8 +71,7 @@ public class FreezeTower : MonoBehaviour
 
                     FreezeEnemy(freezePower);
                 }
-
-                Debug.Log("Hit Object: " + hit.collider.gameObject.name);
+                    Debug.Log("Hit Object: " + hit.collider.gameObject.name);
             }
         }
     }

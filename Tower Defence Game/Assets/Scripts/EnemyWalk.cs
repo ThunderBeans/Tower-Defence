@@ -1,19 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 public class EnemyWalk : MonoBehaviour
-{
+{ 
     //-- Stats
+    private Animator animator;
     float distanceUntillStop = 0.5f;
     public float walkSpeed = 5;
     float turnSpeed = 120;
     float accel = 8;
     public float baseSpeed;
-    public float unFreezeSpeed = 1;
+    public float unFreezeSpeed = 0.5f;
 
     //-- Misc
     public bool inCombat = false;
@@ -21,6 +23,7 @@ public class EnemyWalk : MonoBehaviour
     GameObject kasteel;
     EnemyCombat ec;
     Kasteel kasteelcode;
+    
 
     private void Awake()
     {
@@ -32,6 +35,8 @@ public class EnemyWalk : MonoBehaviour
         nmAgent.angularSpeed = turnSpeed;
         nmAgent.acceleration = accel;
         nmAgent.stoppingDistance = distanceUntillStop;
+        
+
 
         kasteel = GameObject.FindGameObjectWithTag("kasteel");
     }
@@ -39,6 +44,7 @@ public class EnemyWalk : MonoBehaviour
     void Start()
     {
         Invoke("Journey", 0.6f);
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -48,11 +54,23 @@ public class EnemyWalk : MonoBehaviour
         if (walkSpeed != baseSpeed)
         {
             walkSpeed = Mathf.MoveTowards(walkSpeed, baseSpeed, unFreezeSpeed * Time.deltaTime);
+            print(walkSpeed);
         }
 
-        if (walkSpeed < 0)
+        if (walkSpeed < 0.05)
         {
-            walkSpeed = 0;
+            animator.speed = 0f;
+            // walkSpeed = 0;
+        }
+        if (walkSpeed > 0.5f)
+        {
+            animator.speed = 0.5f;
+            ec.Man.GetComponent<Renderer>().material.color = ec.NormalMat.color;
+        }
+        if (walkSpeed > 2)
+        {
+            animator.speed = 1f;
+            gameObject.tag = "Enemy";
         }
 
         if (inCombat)
@@ -98,4 +116,6 @@ public class EnemyWalk : MonoBehaviour
         nmAgent.SetDestination(kasteel.transform.position);
         }
     }
+
+
 }

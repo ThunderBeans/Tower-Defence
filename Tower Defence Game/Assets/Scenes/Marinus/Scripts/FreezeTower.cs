@@ -70,6 +70,7 @@ public class FreezeTower : MonoBehaviour
 
                     FreezeEnemy(freezePower);
                 }
+
                 Debug.Log("Hit Object: " + hit.collider.gameObject.name);
             }
         }
@@ -79,14 +80,21 @@ public class FreezeTower : MonoBehaviour
 
     public void FreezeEnemy(float _freezePower)
     {
+        if(emc.tag == "Enemy")
+        { 
         emw.walkSpeed = Mathf.MoveTowards(emw.walkSpeed, 0, (1 / _freezePower) * Time.deltaTime);
+        }
+        
         if (emw.walkSpeed <= 0)
         {
             emc.Man.GetComponent<Renderer>().material.color = emc.FrozenMat.color;
+            emc.tag = "Untagged";
         }
+       
         else if (emw.walkSpeed >= 0)
         { 
             emc.Man.GetComponent<Renderer>().material.color = emc.NormalMat.color;
+            
         }
     }
 

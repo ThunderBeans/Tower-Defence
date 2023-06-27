@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 8
   baseSpeed: 8
-  unFreezeSpeed: 0.5
+  unFreezeSpeed: 0.3
   inCombat: 0
 --- !u!114 &2485344050223835618
 MonoBehaviour:
@@ -5094,6 +5094,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1483178916923154169, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
   m_PrefabInstance: {fileID: 3987725431184354653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3608614252424493825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 379253093208200796, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+  m_PrefabInstance: {fileID: 3987725431184354653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1983564768957645962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608614252424493825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4e21d81093f2b47b38863c565b6221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4527584763527237863}
 --- !u!4 &4134180382991720891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1011251636130335974, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
@@ -5102,6 +5120,11 @@ Transform:
 --- !u!4 &4373228255210259878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 857914612170533115, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
+  m_PrefabInstance: {fileID: 3987725431184354653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4527584763527237863 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 685120523290279354, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
   m_PrefabInstance: {fileID: 3987725431184354653}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7316986786143720009 stripped

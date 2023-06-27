@@ -60,18 +60,6 @@ public class Tower : MonoBehaviour
                     emc.hitPoints -= damage;
                 }
             }
-         gun[1].LookAt(nearestEnemy.transform);
-
-
-            if (Physics.Raycast(gun[1].position, gun[1].forward, out hit, range))
-            {
-                if (hit.collider.gameObject.CompareTag(targetTag))
-                {
-                    print("Shoot");
-                    emc = nearestEnemy.GetComponent<EnemyCombat>();
-                    emc.hitPoints -= damage;
-                }
-            }
         }
     }
 }

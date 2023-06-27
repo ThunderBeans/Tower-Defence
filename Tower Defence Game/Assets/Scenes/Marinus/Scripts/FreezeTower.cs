@@ -74,22 +74,6 @@ public class FreezeTower : MonoBehaviour
                     FreezeEnemy(freezePower);
                 }
             }
-            gun[1].LookAt(nearestEnemy.transform);
-
-
-            if (Physics.Raycast(gun[1].position, gun[1].forward, out hit, range))
-            {
-                if (hit.collider.gameObject.CompareTag(targetTag))
-                {
-                    emc = nearestEnemy.GetComponent<EnemyCombat>();
-                    emw = nearestEnemy.GetComponent<EnemyWalk>();
-
-                    freezeRay.GetComponent<ParticleSystem>().Play();
-
-                    emc.hitPoints -= damage;
-                    FreezeEnemy(freezePower);
-                }
-            }
         }
     }
     public void FreezeEnemy(float _freezePower)

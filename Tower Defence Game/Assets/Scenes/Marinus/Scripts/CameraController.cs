@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
@@ -11,24 +11,26 @@ public class CameraController : MonoBehaviour
     Rigidbody rb;
     bool inputDetector = true;
     public bool esc = true;
-    GameObject Op;
-    public static GameObject Ob;
+    public GameObject Op;
+    public  GameObject Ob;
     public static GameObject Zoom;
     Vector3 victor;
     bool spedUp = false;
-    Image speedControlButton;
+    public GameObject speedControlButton;
     public Sprite Speed1;
     public Sprite Speed2;
+    public static Sprite plaatje;
 
 
 
     private void Awake()
     {
-        Op = GameObject.Find("Main");
+        
         rb = GetComponent<Rigidbody>();
-        Ob = GameObject.Find("Options");
         Zoom = GameObject.Find("CameraController");
-        speedControlButton = GameObject.Find("Speed").GetComponent<Image>();
+        plaatje = speedControlButton.GetComponent<Image>().sprite;
+
+
     }
 
     private void Start()
@@ -79,12 +81,12 @@ public class CameraController : MonoBehaviour
             if (spedUp)
             {
                 Time.timeScale = 2.0f;
-                speedControlButton.sprite = Speed2;
+                plaatje = Speed2;
             }
             else if (spedUp == false)
             {
                 Time.timeScale = 1.0f;
-                speedControlButton.sprite = Speed1;
+                plaatje = Speed1;
             }
         }
 

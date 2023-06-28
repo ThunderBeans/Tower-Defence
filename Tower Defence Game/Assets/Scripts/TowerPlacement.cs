@@ -26,15 +26,15 @@ public class TowerPlacement : MonoBehaviour
                      currency.Money -= 700;
                     Instantiate(prefab[1], hit.point, Quaternion.identity);
                 }
-                if (hit.collider.gameObject.CompareTag(groundTag) && number == 3 && currency.Money >= 1000)
+                if (hit.collider.gameObject.CompareTag(groundTag) && number == 3 && currency.Money >= 200)
                 {
-                    currency.Money -= 1000;
+                    currency.Money -= 200;
                     Instantiate(prefab[2], hit.point, Quaternion.identity);
                 }
-                if (hit.collider.gameObject.CompareTag(groundTag) && number == 5 && currency.Money >= 700)
+                if (hit.collider.gameObject.CompareTag(groundTag) && number == 4 && currency.Money >= 600)
                 {
-                    currency.Money -= 700;
-                    Instantiate(prefab[4], hit.point, Quaternion.identity);
+                    currency.Money -= 600;
+                    Instantiate(prefab[3], hit.point, Quaternion.identity);
                 }
 
 
@@ -61,9 +61,5 @@ public class TowerPlacement : MonoBehaviour
     public void press4()
     {
         number = 4;
-    }
-    public void press5()
-    {
-        number = 5;
     }
 }

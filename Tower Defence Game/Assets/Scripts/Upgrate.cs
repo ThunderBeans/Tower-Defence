@@ -37,9 +37,9 @@ public class Upgrate : MonoBehaviour
         {
             if (currencyScript != null)
             {
-                if (currencyScript.Money >= 500)
+                if (currencyScript.Money >= 1000)
                 {
-                    currencyScript.Money -= 500; // Decrease money by 500
+                    currencyScript.Money -= 1000; // Decrease money by 500
                     SpawnUpgrade(2);
                 }
                 else

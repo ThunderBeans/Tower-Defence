@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5081696905688192831}
   - component: {fileID: 5606419436477042052}
   - component: {fileID: 5606419436477042051}
+  - component: {fileID: 1246246985806959720}
   m_Layer: 0
   m_Name: FreezeTower 1
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,11 +66,29 @@ CapsuleCollider:
   m_GameObject: {fileID: 5606419436477042053}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 2.666779
-  m_Height: 6.1216736
+  m_Enabled: 1
+  m_Radius: 2.9630473
+  m_Height: 8.026657
   m_Direction: 1
-  m_Center: {x: 0, y: 3.403778, z: 0}
+  m_Center: {x: 0, y: 2.4512863, z: -0.29626817}
+--- !u!114 &1246246985806959720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606419436477042053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeaae9a8678e3544e9023ba6e8a417a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Upgrade: 1
+  upgrades:
+  - {fileID: 5606419436477042053}
+  - {fileID: 3642331948134454241, guid: a2ca39582155eae4d8a7d02851366469, type: 3}
+  - {fileID: 3774690134991102251, guid: 8db40f1e589ecbf4d8140af679e22576, type: 3}
+  currencyScript: {fileID: 0}
 --- !u!1 &6087544041797006423
 GameObject:
   m_ObjectHideFlags: 0

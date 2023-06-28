@@ -85,7 +85,7 @@ public class FreezeTower : MonoBehaviour
         if (emw.walkSpeed <= 0)
         {
             emc.Man.GetComponent<Renderer>().material.color = emc.FrozenMat.color;
-            emc.tag = "Untagged";
+            emc.tag = "Frozen";
         }
         else if (emw.walkSpeed >= 0)
         {

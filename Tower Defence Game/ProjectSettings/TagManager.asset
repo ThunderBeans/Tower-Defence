@@ -12,6 +12,7 @@ TagManager:
   - kasteel
   - ground
   - Mony
+  - Frozen
   layers:
   - Default
   - TransparentFX

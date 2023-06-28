@@ -9,9 +9,9 @@ public class Upgrate : MonoBehaviour
 
     private void Update()
     {
-        if (Upgrade)
-        {
+        //if (Upgrade)
+        //{
 
-        }
+        //}
     }
 }

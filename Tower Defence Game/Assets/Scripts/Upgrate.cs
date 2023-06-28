@@ -8,9 +8,9 @@ public class Upgrate : MonoBehaviour
     public int Upgrade;
     public GameObject[] upgrades;
     public CurencyScript currencyScript;
+
     private void Start()
     {
-        //currencyScript = GameObject.FindGameObjectWithTag("Mony").GetComponent<CurencyScript>();
         currencyScript = FindObjectOfType<CurencyScript>();
     }
     public void Upgradeing()

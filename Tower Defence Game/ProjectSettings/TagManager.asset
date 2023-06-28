@@ -13,6 +13,7 @@ TagManager:
   - ground
   - Mony
   - Frozen
+  - Shop
   layers:
   - Default
   - TransparentFX

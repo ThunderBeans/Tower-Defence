@@ -18,6 +18,7 @@ public class EnemyWalk : MonoBehaviour
     public float unFreezeSpeed = 0.5f;
 
     //-- Misc
+    public bool paddo;
     public bool inCombat = false;
     NavMeshAgent nmAgent;
     GameObject kasteel;
@@ -64,7 +65,11 @@ public class EnemyWalk : MonoBehaviour
         if (walkSpeed > 0.5f)
         {
             animator.speed = 0.5f;
-            ec.Man.GetComponent<Renderer>().material.color = ec.NormalMat.color;
+            if (!paddo)
+            {
+                ec.Man.GetComponent<Renderer>().material.color = ec.NormalMat.color;
+            }
+            
         }
         if (walkSpeed > 2)
         {

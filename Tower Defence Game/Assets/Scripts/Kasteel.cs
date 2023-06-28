@@ -10,7 +10,7 @@ public class Kasteel : MonoBehaviour
     public bool attacked;
     public TextMeshProUGUI healthText; // Reference to the TextMeshPro component
     public TextMeshProUGUI timerText; // Reference to the TextMeshPro component
-    private float timerDuration = 300f; // Timer duration in seconds (5 minutes)
+    public float timerDuration = 300f; // Timer duration in seconds (5 minutes)
     private float timer; // Current timer value
 
     private void Start()

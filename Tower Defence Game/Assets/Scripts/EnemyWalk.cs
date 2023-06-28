@@ -54,7 +54,6 @@ public class EnemyWalk : MonoBehaviour
         if (walkSpeed != baseSpeed)
         {
             walkSpeed = Mathf.MoveTowards(walkSpeed, baseSpeed, unFreezeSpeed * Time.deltaTime);
-            print(walkSpeed);
         }
 
         if (walkSpeed < 0.05)

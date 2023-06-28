@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 4018455887060745287}
   - component: {fileID: 6960806459360898386}
   - component: {fileID: 6647628433078760989}
+  - component: {fileID: 3623324717928023407}
   m_Layer: 7
   m_Name: Tower 1
   m_TagString: Tower
@@ -253,7 +254,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5662242879815644514}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.798721, y: 0.90823555, z: 15.093247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -328,7 +329,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 20
   damage: 3
-  targetTag: Enemy
   gun:
   - {fileID: 496301831746938901}
   fireRate: 8
@@ -341,10 +341,27 @@ BoxCollider:
   m_GameObject: {fileID: 5662242879815644514}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8483963, y: 4.89331, z: 2.056326}
-  m_Center: {x: -0.10707474, y: 2.4633086, z: -0.07722092}
+  m_Size: {x: 1.8483963, y: 5.160433, z: 2.056326}
+  m_Center: {x: -0.10707474, y: 0.60456854, z: -0.07722092}
+--- !u!114 &3623324717928023407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5662242879815644514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeaae9a8678e3544e9023ba6e8a417a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Upgrade: 1
+  upgrades:
+  - {fileID: 5662242879815644514}
+  - {fileID: 5662242879815644514, guid: 5dbd698dfb793fb4b810c02ba7af8f04, type: 3}
+  - {fileID: 5662242879815644514, guid: 18e521ddc34cbf249bf9544767a173eb, type: 3}
 --- !u!1 &8521286083786005228
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,32 +9,28 @@ public class FreezeTower : MonoBehaviour
     public float range = 5f;
     public float damage = 1f;
     public static string targetTag = "Enemy";
-    public Transform[] gun;
+    public Transform[] guns;
     public float fireRate = 8f;
-    public float freezePower = 0.3f; // lager is sterker
+    public float freezePower = 0.3f; // larger is stronger
     public GameObject freezeRay;
-    public static ParticleSystem freeze;
+    public ParticleSystem freeze;
 
-
-    EnemyCombat emc;
-    EnemyWalk emw;
-
-    private float fireCountdown = 0f;
     private void Start()
     {
-    freeze = freezeRay.GetComponent<ParticleSystem>();
+        freeze = freezeRay.GetComponent<ParticleSystem>();
+        StartCoroutine(ShootRoutine());
     }
-    void LateUpdate()
+
+    private IEnumerator ShootRoutine()
     {
-        fireCountdown -= Time.deltaTime;
-        if (fireCountdown <= 0f)
+        while (true)
         {
+            yield return new WaitForSeconds(1f / fireRate);
             FindTargetAndShoot();
-            fireCountdown = 1f / fireRate;
         }
     }
 
-    void FindTargetAndShoot()
+    private void FindTargetAndShoot()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
         GameObject nearestEnemy = null;
@@ -53,49 +49,47 @@ public class FreezeTower : MonoBehaviour
 
         if (nearestEnemy != null && shortestDistance <= range)
         {
-
-            gun[0].LookAt(nearestEnemy.transform);
-
-            RaycastHit hit;
-            if (Physics.Raycast(gun[0].position, gun[0].forward, out hit, range))
+            foreach (Transform gun in guns)
             {
-                if (hit.collider.gameObject.CompareTag(targetTag))
+                gun.LookAt(nearestEnemy.transform);
+
+                RaycastHit hit;
+                if (Physics.Raycast(gun.position, gun.forward, out hit, range))
                 {
-                    print("Shoot");
-                    emc = nearestEnemy.GetComponent<EnemyCombat>();
-                    emw = nearestEnemy.GetComponent<EnemyWalk>();
+                    if (hit.collider.gameObject.CompareTag(targetTag))
+                    {
+                        Debug.Log("Shoot");
+                        EnemyCombat emc = nearestEnemy.GetComponent<EnemyCombat>();
+                        EnemyWalk emw = nearestEnemy.GetComponent<EnemyWalk>();
 
-                    freeze.Play();
+                        freeze.Play();
 
-                    emc.hitPoints -= damage;
+                        emc.hitPoints -= damage;
 
-                    FreezeEnemy(freezePower);
-                }
+                        FreezeEnemy(emc, emw, freezePower);
+                    }
+
                     Debug.Log("Hit Object: " + hit.collider.gameObject.name);
+                }
             }
         }
     }
 
-
-
-    public void FreezeEnemy(float _freezePower)
+    private void FreezeEnemy(EnemyCombat emc, EnemyWalk emw, float _freezePower)
     {
-        if(emc.tag == "Enemy")
-        { 
-        emw.walkSpeed = Mathf.MoveTowards(emw.walkSpeed, 0, (1 / _freezePower) * Time.deltaTime);
+        if (emc != null && emc.tag == "Enemy")
+        {
+            emw.walkSpeed = Mathf.MoveTowards(emw.walkSpeed, 0, (1 / _freezePower) * Time.deltaTime);
         }
-        
+
         if (emw.walkSpeed <= 0)
         {
             emc.Man.GetComponent<Renderer>().material.color = emc.FrozenMat.color;
             emc.tag = "Untagged";
         }
-       
         else if (emw.walkSpeed >= 0)
-        { 
+        {
             emc.Man.GetComponent<Renderer>().material.color = emc.NormalMat.color;
-            
         }
     }
-
 }

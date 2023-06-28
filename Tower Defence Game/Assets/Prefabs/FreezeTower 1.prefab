@@ -50,11 +50,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 20
   damage: 0.2
-  gun:
+  guns:
   - {fileID: 4688081273261252895}
   fireRate: 16
   freezePower: 0.03
   freezeRay: {fileID: 4688081273261252870}
+  freeze: {fileID: 0}
 --- !u!136 &5606419436477042051
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class Kasteel : MonoBehaviour
     {
         if (health <= 0)
         {
-            Debug.Log("dood");
+            SceneManager.LoadScene("Death");
         }
 
         // Decrease the timer value

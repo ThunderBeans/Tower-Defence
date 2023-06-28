@@ -14,6 +14,10 @@ public class CurencyScript : MonoBehaviour
     void Update()
     {
         MoneyText.text = "Money:" +Money.ToString();
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            addMoney();
+        }
     }
 
     public void addMoney()

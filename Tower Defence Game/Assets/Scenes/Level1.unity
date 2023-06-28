@@ -1826,7 +1826,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh74184
+  m_Name: pb_Mesh57452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2414,7 +2414,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh73998
+  m_Name: pb_Mesh57266
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7411,7 +7411,8 @@ MonoBehaviour:
   Man: {fileID: 3045556809632976184, guid: 342512f23761e8148b5a3a70c84221bc, type: 3}
   Slime: {fileID: 3831239794954746998, guid: 458eb9bd853ac8d42b02963f0bd45796, type: 3}
   Paddenstoel: {fileID: 379253093208200796, guid: e75ab0d08a54d20429d10fc82ca9377b, type: 3}
-  spawnTime: 1.5
+  NewEnemy: {fileID: 8490283299036754969, guid: 43be20e1eb418754ba0b1a109dddd682, type: 3}
+  spawnTime: 5
   waveTimer: 0
   wave: 1
   waveText: {fileID: 1228475018}

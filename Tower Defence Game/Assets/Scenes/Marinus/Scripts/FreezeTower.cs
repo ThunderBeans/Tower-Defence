@@ -65,7 +65,7 @@ public class FreezeTower : MonoBehaviour
                         freeze.Play();
 
                         emc.hitPoints -= damage;
-
+                        
                         FreezeEnemy(emc, emw, freezePower);
                     }
 

@@ -24,7 +24,6 @@ public class Tower : MonoBehaviour
 
     void FindTargetAndShoot()
     {
-        Debug.Log("AAAAAAHHHHHHHHHHH");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
         GameObject nearestEnemy = null;
         float shortestDistance = range + 1f; // Initialize with a value greater than the range
@@ -39,7 +38,6 @@ public class Tower : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
-        Debug.Log(nearestEnemy);
         if (nearestEnemy != null && shortestDistance <= range)
         {
 
@@ -50,11 +48,9 @@ public class Tower : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {
-                    print("Shoot");
                     emc = nearestEnemy.GetComponent<EnemyCombat>();
                     emc.hitPoints -= damage;
                 }
-                Debug.Log("Hit Object: " + hit.collider.gameObject.name);
             }
         }
     }

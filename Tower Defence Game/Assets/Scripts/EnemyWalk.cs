@@ -116,5 +116,17 @@ public class EnemyWalk : MonoBehaviour
         }
     }
 
-
+    private void OnTriggerStay(Collider other)
+    {
+       
+            if (other.CompareTag("kasteel"))
+            {
+                if (kasteelcode.attacked == false)
+                {
+                    kasteelcode.attacked = true;
+                    kasteelcode.Invoke("Damage", 2);
+                    Destroy(gameObject);
+                }
+            }
+    }
 }

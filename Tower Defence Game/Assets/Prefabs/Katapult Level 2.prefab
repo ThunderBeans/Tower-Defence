@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 7853105547384883605}
   - component: {fileID: 7853105547384883604}
   - component: {fileID: 7853105547384883600}
+  - component: {fileID: 2624172426324775352}
   m_Layer: 0
   m_Name: Katapult Level 2
   m_TagString: Untagged
@@ -297,8 +298,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 5.3950667, z: 1}
+  m_Center: {x: 0, y: 2.1975338, z: 0}
 --- !u!114 &7853105547384883600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,9 +312,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddda26ba89a9b7b49988f142322785fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 0}
+  prefabToSpawn: {fileID: 3266178847843926523, guid: 63181f0ac5e8d9145a97834b70b1ad9b, type: 3}
   spawnInterval: 5
   spawnPoint: {fileID: 7853105548020484630}
+--- !u!114 &2624172426324775352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853105547384883691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeaae9a8678e3544e9023ba6e8a417a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Upgrade: 2
+  upgrades:
+  - {fileID: 6436537989376172735, guid: cffa6f0c523dbae46938489e5c7d1a5f, type: 3}
+  - {fileID: 7853105547384883691}
+  - {fileID: 7853105547384883691}
+  currencyScript: {fileID: 0}
 --- !u!1 &7853105548020484630
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,11 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9a99e79c89cd249add41e0af7a513b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
-  damage: 0.2
+  range: 25
+  damage: 0.4
   guns:
   - {fileID: 4688081273261252895}
-  fireRate: 16
+  fireRate: 20
   freezePower: 0.03
   freezeRay: {fileID: 4688081273261252870}
   freeze: {fileID: 0}

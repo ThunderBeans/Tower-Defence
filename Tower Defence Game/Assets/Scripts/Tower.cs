@@ -24,11 +24,18 @@ public class Tower : MonoBehaviour
 
     void FindTargetAndShoot()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
+        GameObject[] targetObjects = GameObject.FindGameObjectsWithTag(targetTag);
+        GameObject[] frozenObjects = GameObject.FindGameObjectsWithTag("Frozen");
+         
+
+        GameObject[] enemies = new GameObject[targetObjects.Length + frozenObjects.Length];
+        targetObjects.CopyTo(enemies, 0);
+        frozenObjects.CopyTo(enemies, targetObjects.Length);
+
         GameObject nearestEnemy = null;
         float shortestDistance = range + 1f; // Initialize with a value greater than the range
 
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies) // Iterate through allObjects array
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 
@@ -38,6 +45,7 @@ public class Tower : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
+
         if (nearestEnemy != null && shortestDistance <= range)
         {
 
@@ -46,12 +54,12 @@ public class Tower : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(gun[0].position, gun[0].forward, out hit, range))
             {
-                if (hit.collider.gameObject.CompareTag(targetTag))
+                if (hit.collider.gameObject.CompareTag(targetTag) || hit.collider.gameObject.CompareTag("Frozen"))
                 {
                     emc = nearestEnemy.GetComponent<EnemyCombat>();
                     emc.hitPoints -= damage;
                 }
-            }
+             }
         }
     }
 }

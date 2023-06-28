@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff81b187e972d044abeaf22dcf5c2319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 8
-  baseSpeed: 8
-  unFreezeSpeed: 0.3
+  walkSpeed: 7
+  baseSpeed: 7
+  unFreezeSpeed: 0.2
   inCombat: 0
 --- !u!114 &2485344050223835618
 MonoBehaviour:
@@ -125,8 +125,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 4.7624464, z: 1}
-  m_Center: {x: 0, y: 5.698049, z: 0}
+  m_Size: {x: 1.308069, y: 1.559515, z: 1.1430392}
+  m_Center: {x: -0.15403458, y: 4.0965824, z: -0.07151961}
 --- !u!137 &2066758250594259922
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

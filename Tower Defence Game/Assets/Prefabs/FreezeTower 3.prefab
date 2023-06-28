@@ -217,12 +217,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9a99e79c89cd249add41e0af7a513b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
-  damage: 0.35
+  range: 32
+  damage: 1
   guns:
   - {fileID: 4081120514070433201}
-  fireRate: 16
-  freezePower: 0.05
+  fireRate: 28
+  freezePower: 0.06
   freezeRay: {fileID: 4081120514070433192}
   freeze: {fileID: 0}
 --- !u!136 &3774690134991102253

@@ -4923,7 +4923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 2.5
   baseSpeed: 2.5
-  unFreezeSpeed: 0.3
+  unFreezeSpeed: 0.5
   paddo: 0
   inCombat: 0
 --- !u!135 &7664651901808623237

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ae1c02dbc4bdcd44cba074818373d45f, type: 2}
   m_LightingSettings: {fileID: 1959661503}
 --- !u!196 &4
 NavMeshSettings:
@@ -188,6 +188,7 @@ MonoBehaviour:
   attacked: 0
   healthText: {fileID: 0}
   timerText: {fileID: 0}
+  timerDuration: 300
 --- !u!23 &2567130
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2983,6 +2984,7 @@ MonoBehaviour:
   attacked: 0
   healthText: {fileID: 0}
   timerText: {fileID: 0}
+  timerDuration: 300
 --- !u!23 &403883562
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4811,6 +4813,7 @@ MonoBehaviour:
   attacked: 0
   healthText: {fileID: 0}
   timerText: {fileID: 0}
+  timerDuration: 300
 --- !u!23 &859741894
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7656,6 +7659,7 @@ MonoBehaviour:
   Man: {fileID: 3045556809632976184, guid: 342512f23761e8148b5a3a70c84221bc, type: 3}
   Slime: {fileID: 3831239794954746998, guid: 458eb9bd853ac8d42b02963f0bd45796, type: 3}
   Paddenstoel: {fileID: 2485344050223835631, guid: 1d5f735f977536048ae638fb87b9657d, type: 3}
+  NewEnemy: {fileID: 0}
   spawnTime: 1.5
   waveTimer: 0
   wave: 1
@@ -8067,6 +8071,7 @@ MonoBehaviour:
   attacked: 0
   healthText: {fileID: 0}
   timerText: {fileID: 0}
+  timerDuration: 300
 --- !u!23 &1409919145
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10029,6 +10034,7 @@ MonoBehaviour:
   attacked: 0
   healthText: {fileID: 0}
   timerText: {fileID: 0}
+  timerDuration: 300
 --- !u!23 &1794088173
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11602,6 +11608,7 @@ MonoBehaviour:
   attacked: 0
   healthText: {fileID: 248519204}
   timerText: {fileID: 42712027}
+  timerDuration: 300
 --- !u!135 &7342226588083692246
 SphereCollider:
   m_ObjectHideFlags: 0

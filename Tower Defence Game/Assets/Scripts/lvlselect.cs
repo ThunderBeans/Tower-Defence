@@ -29,7 +29,11 @@ public class lvlselect : MonoBehaviour
     {
         SceneManager.LoadScene("endless");
     }
-public void mainmenu()
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void mainmenu()
     {
         SceneManager.LoadScene("Menu");
     }
